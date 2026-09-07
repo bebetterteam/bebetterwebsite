@@ -78,6 +78,17 @@ in the file that owns them:
 
 ```bash
 npm install
-npm run dev     # http://localhost:3000
+npm run dev         # http://localhost:3000
 npm run build
+npm run framer      # re-export the Framer components (reads unframer.json)
+```
+
+### If the page renders unstyled (serif text, no layout)
+
+That is a stale dev-server module graph — it happens after files are added or
+deleted while `next dev` is running, and it drops the CSS chunks. Production
+builds are unaffected. Fix:
+
+```bash
+npm run dev:clean   # rm -rf .next && next dev
 ```
