@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Design tokens — mirrored 1:1 from the Framer project color styles
+   --------------------------------------------------------------- */
+@theme {
+  --color-brand-blue: rgb(67, 96, 255);
+  --color-brand-orange: rgb(252, 97, 41);
+
+  --color-mint-70: rgb(102, 255, 217);
+  --color-mint-40: rgb(0, 204, 153);
+  --color-indigo-70: rgb(102, 112, 255);
+  --color-orange-60: rgb(252, 97, 41);
+
+  --color-white-100: rgb(255, 255, 255);
+  --color-grey-98: rgb(250, 250, 250);
+  --color-grey-95: rgb(242, 242, 242);
+  --color-grey-70: rgb(179, 179, 179);
+  --color-grey-50: rgb(128, 128, 128);
+  --color-grey-30: rgb(77, 77, 77);
+  --color-dark-10: rgb(26, 26, 26);
+  --color-black: rgb(0, 0, 0);
+
+  --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  /* Lenis drives the scrolling; native smooth would fight it */
+  scroll-behavior: auto;
+}
+
+body {
+  background: #fff;
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@layer base {
+  /* ---------------------------------------------------------------
+     Text styles — mirrored 1:1 from the Framer project text styles
+     --------------------------------------------------------------- */
+  .t-h1 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.2em;
+    letter-spacing: 0;
+    text-align: center;
+  }
+  .t-h2 {
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.25em;
+    letter-spacing: 0;
+    text-align: left;
+  }
+  .t-h3 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.3em;
+    text-align: left;
+  }
+  .t-h4 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.2em;
+    text-align: left;
+  }
+  .t-body {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.6em;
+    text-align: left;
+  }
+  .t-body-sm {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5em;
+    text-align: left;
+  }
+  .t-body-big {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.45em;
+    text-align: center;
+  }
+  .t-quote {
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.2em;
+    text-align: center;
+  }
+  .t-span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4em;
+    text-align: left;
+  }
+  .t-span-muted {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: left;
+  }
+  .t-wordmark {
+    font-weight: 800;
+    font-size: 44px;
+    line-height: 1.05em;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* Rich text coming out of the Framer CMS */
+  .rich-text h2 {
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.25em;
+    margin: 56px 0 16px;
+  }
+  .rich-text h3 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.3em;
+    margin: 32px 0 12px;
+  }
+  .rich-text p {
+    font-size: 20px;
+    line-height: 1.6em;
+    margin-bottom: 20px;
+  }
+  .rich-text ul,
+  .rich-text ol {
+    margin: 0 0 24px 24px;
+  }
+  .rich-text ul {
+    list-style: disc;
+  }
+  .rich-text ol {
+    list-style: decimal;
+  }
+  .rich-text li {
+    font-size: 20px;
+    line-height: 1.6em;
+    margin-bottom: 10px;
+  }
+  .rich-text li p {
+    margin: 0;
+  }
+  .rich-text strong {
+    font-weight: 600;
+  }
+  .rich-text blockquote {
+    border-left: 3px solid var(--color-brand-blue);
+    padding-left: 20px;
+    margin: 32px 0;
+    font-style: italic;
+    color: var(--color-grey-30);
+  }
+  .rich-text a {
+    color: var(--color-brand-blue);
+    text-decoration: underline;
+  }
+}
+
+@layer base {
+  @media (max-width: 809px) {
+    .t-h1 { font-size: 34px; }
+    .t-h2 { font-size: 28px; }
+    .t-h3 { font-size: 20px; }
+    .t-body-big { font-size: 18px; }
+    .t-body { font-size: 17px; }
+    .t-wordmark { font-size: 30px; }
+    .rich-text h2 { font-size: 26px; }
+    .rich-text h3 { font-size: 20px; }
+    .rich-text p,
+    .rich-text li { font-size: 17px; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Hero ticker — Framer "Hero Ticker" (nodeId rEXB_BAtk) */
+.ticker-text span {
+  font-size: clamp(44px, 11.5vw, 168px);
+  font-weight: 800;
+  line-height: 1.05em;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.ticker-track {
+  animation: ticker-scroll 30s linear infinite;
+  will-change: transform;
+}
+@keyframes ticker-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
