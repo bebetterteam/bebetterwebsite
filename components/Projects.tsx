@@ -23,9 +23,9 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative w-full overflow-hidden rounded-3xl bg-white px-6 py-[192px]"
+      className="relative w-full overflow-hidden rounded-3xl bg-white py-[96px] md:py-[192px]"
     >
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-24">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-12 md:gap-24">
         <h2 className="t-h2">{projectsSection.title}</h2>
 
         <div

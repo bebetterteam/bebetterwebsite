@@ -14,9 +14,9 @@ export default function Contact() {
   return (
     <footer
       id="contact"
-      className="relative w-full overflow-hidden bg-dark-10 px-6 pt-[160px] pb-12 text-white"
+      className="relative w-full overflow-hidden bg-dark-10 px-6 pt-[96px] pb-12 text-white md:pt-[160px]"
     >
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-24">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-12 md:gap-24">
         <div className="flex flex-col items-center gap-8 text-center">
           <h2 className="t-h1">{contact.title}</h2>
           <p className="t-body-big max-w-[640px] text-white/70">

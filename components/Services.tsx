@@ -38,7 +38,7 @@ export default function Services() {
     <section
       id="services"
       ref={ref}
-      className="relative w-full bg-white px-6 py-[192px]"
+      className="relative w-full bg-white py-[96px] md:py-[192px]"
     >
       <div
         className="pointer-events-none absolute inset-0 transition-colors duration-700 ease-out"
@@ -46,7 +46,7 @@ export default function Services() {
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col gap-24">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col gap-12 md:gap-24">
         <h2 className="t-h2">{services.title}</h2>
 
         <div className="flex flex-col md:flex-row md:items-start">
@@ -59,7 +59,7 @@ export default function Services() {
               <div
                 key={item.number}
                 data-panel={i}
-                className="relative flex flex-col justify-start gap-3 border-t border-black/8 py-16 md:h-screen md:border-none md:pt-[146px] md:pr-0 md:pb-6 md:pl-6"
+                className="relative flex flex-col justify-start gap-[10px] border-t border-black/8 py-16 md:h-screen md:border-none md:pt-[146px] md:pr-0 md:pb-6 md:pl-6"
               >
                 <h3 className="t-h3">{item.title}</h3>
                 <p className="t-body-big">{item.body}</p>

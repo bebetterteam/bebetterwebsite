@@ -77,7 +77,7 @@ export default function Hero() {
             <FramerSkillsList
               locale=""
               variant="xVFUGGmVI"
-              style={{ width: 270, height: 32 }}
+              style={{ width: 283, height: 32 }}
             />
           </div>
 

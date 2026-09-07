@@ -60,13 +60,13 @@ export default function Toolkit() {
   return (
     <section
       id="stack"
-      className="relative w-full overflow-hidden bg-white px-6 py-[192px]"
+      className="relative w-full overflow-hidden bg-white py-[96px] md:py-[192px]"
     >
       <div className="pointer-events-none absolute top-1/2 left-1/2 hidden h-[720px] w-[720px] -translate-x-1/2 -translate-y-1/2 opacity-90 lg:block">
         <Image src="/3d/purple-cube-large.png" alt="" width={720} height={720} className="h-full w-full object-contain" />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col gap-24">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col gap-12 md:gap-24">
         <h2 className="t-h2">{toolkit.title}</h2>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

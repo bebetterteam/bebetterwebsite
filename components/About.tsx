@@ -37,7 +37,7 @@ export default function About() {
       ref={ref}
       className="relative h-[350vh] w-full rounded-3xl bg-white"
     >
-      <div className="sticky top-0 flex h-screen w-full items-start justify-center overflow-hidden py-[192px]">
+      <div className="sticky top-0 flex h-screen w-full items-start justify-center overflow-hidden py-[96px] md:py-[192px]">
         <div
           className="pointer-events-none absolute top-1/2 left-[120px] hidden h-[640px] w-[640px] lg:block"
           style={{ translate: `${progress * -80}px -50%`, opacity: 0.9 }}
@@ -59,7 +59,7 @@ export default function About() {
         {about.cards.map((copy, i) => (
           <div
             key={i}
-            className="sticky top-0 flex h-screen w-full flex-col items-center justify-center gap-10 px-6"
+            className="sticky top-0 flex h-screen w-full flex-col items-center justify-center gap-10"
           >
             <div className="pointer-events-auto w-full max-w-[900px]">
               <FramerAboutCard

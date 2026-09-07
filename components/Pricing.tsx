@@ -52,8 +52,8 @@ function PricingCard({ card }: { card: (typeof pricing.cards)[number] }) {
 
 export default function Pricing() {
   return (
-    <section className="relative w-full overflow-hidden bg-white px-6 py-[192px]">
-      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col items-center gap-24">
+    <section className="relative w-full overflow-hidden bg-white py-[96px] md:py-[192px]">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col items-center gap-12 md:gap-24">
         <h2 className="t-h2 w-full">{pricing.title}</h2>
 
         <div className="grid w-full max-w-[940px] grid-cols-1 items-start gap-6 md:grid-cols-2">
@@ -62,8 +62,8 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="flex w-full max-w-[800px] flex-col items-start gap-8 rounded-[32px] bg-grey-98 p-8 md:flex-row md:items-center md:justify-between md:p-10">
-          <div className="flex flex-col gap-4">
+        <div className="flex w-full max-w-[800px] flex-col items-start gap-6 rounded-[32px] bg-grey-98 p-8 md:flex-row md:items-center md:justify-between md:p-10">
+          <div className="flex flex-col gap-6">
             <h3 className="t-h3 max-w-[600px]">{pricing.bookACall.title}</h3>
             <p className="t-body-big text-left">{pricing.bookACall.body}</p>
           </div>
