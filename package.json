@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "dev:clean": "rm -rf .next && next dev",
-    "framer": "unframer"
+    "framer": "unframer",
+    "logo": "python3 scripts/prepare-logo.py"
   },
   "dependencies": {
     "@motionone/dom": "^10.18.0",

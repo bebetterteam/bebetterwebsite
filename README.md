@@ -62,11 +62,18 @@ in the file that owns them:
    could not be read. [components/Contact.tsx](components/Contact.tsx) builds one
    from the project's own type and colour styles. **Replace the placeholder
    email, LINE link and address.**
-2. **Logo.** Save the Bebetter mark as `public/logo.png` (or `.svg` — then change
-   the one `src` in [components/Logo.tsx](components/Logo.tsx)). It is picked up
-   automatically by the hero card and the footer, with no other code change;
-   until the file exists both fall back to `public/logo-placeholder.svg`.
-   The browser tab icon is separate — replace `public/favicon.svg` too.
+2. **Logo.** In place. `public/logo-source.png` is the file as supplied (artwork
+   on an opaque white background); `npm run logo` knocks the background out and
+   splits the symbol from the wordmark:
+
+   | file | used by |
+   | --- | --- |
+   | `public/logo.png` | full lockup, transparent |
+   | `public/logo-mark.png` | symbol only, 512×512 — hero card, footer, favicon |
+
+   To change the logo, replace `logo-source.png` and re-run `npm run logo`.
+   [components/Logo.tsx](components/Logo.tsx) falls back to
+   `public/logo-placeholder.svg` if a file is missing.
 3. **Client avatars.** The `Memoji` component's images were not reachable, so
    the three avatars are brand-coloured circles.
 4. **Project / legal images.** Every Image field in the CMS is `null`, so covers
