@@ -1,0 +1,17 @@
+{
+  "breakpoints": ["desktop", "tablet", "phone"],
+  "outDir": "framer",
+  "components": {
+    "top-nav": "https://framer.com/m/Top-Nav-jDPDZ3.js",
+    "hero-ticker": "https://framer.com/m/Hero-Ticker-3jvO.js",
+    "skills-list": "https://framer.com/m/Skills-List-KBzJSt.js",
+    "memoji": "https://framer.com/m/Memoji-TVJw.js",
+    "button": "https://framer.com/m/Button-n8Xt.js",
+    "about-card": "https://framer.com/m/About-Card-JGUWac.js",
+    "stack-card": "https://framer.com/m/Stack-Card-Du6fEA.js",
+    "services-graphic": "https://framer.com/m/Services-Graphic-UnLh.js",
+    "pricing-card": "https://framer.com/m/About-Card-WWInL1.js",
+    "projects-collection-stack": "https://framer.com/m/Projects-Collection-Stack-NX3XzA.js",
+    "footer": "https://framer.com/m/Footer-D04J.js"
+  }
+}

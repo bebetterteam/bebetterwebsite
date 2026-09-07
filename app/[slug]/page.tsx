@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import TopNav from "@/components/TopNav";
 import Contact from "@/components/Contact";
-import Button from "@/components/Button";
+import { FramerButton } from "@/components/framer";
 import { getProject, publishedProjects } from "@/lib/projects";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -84,10 +84,17 @@ export default async function ProjectPage({ params }: Params) {
 
           {project.buyLink && (
             <div className="mt-16">
-              <Button
-                label={project.buyButtonText}
-                href={project.buyLink.replace(/^\/#/, "#")}
-                icon="ArrowRight"
+              <FramerButton
+                locale=""
+                variant="JpseF5ehj"
+                O1r1SHWDe={project.buyButtonText}
+                YAeBepFkC="ArrowRight"
+                bGXKran9l={project.buyLink.replace(/^\/#/, "#")}
+                IzpkIlCCL="rgb(255, 255, 255)"
+                E3sMJqdyg="rgb(67, 96, 255)"
+                jbqbpFWTR="rgb(67, 96, 255)"
+                iiNMG_vXP="rgb(255, 255, 255)"
+                IJooVlaof="Back"
               />
             </div>
           )}

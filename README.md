@@ -4,11 +4,33 @@ A real, coded implementation of the Bebetter Framer project, built with Next.js.
 Every string, colour, type style and section order is taken from the Framer
 project through the Framer MCP so the site matches the design.
 
+## Real Framer components (this is the important part)
+
+The animations, variants, hover states, spring transitions and fonts are **not
+reimplemented** — they are the actual components from the Framer project,
+exported with [unframer](https://github.com/remorses/unframer) (free, open
+source; the paid Framer "React Export" plugin is not needed).
+
+```bash
+npx unframer          # re-runs the export, reads unframer.json
+```
+
+[unframer.json](unframer.json) lists the component URLs; the generated code
+lands in [framer/](framer/) and is committed so the build works without network
+access. [components/framer.ts](components/framer.ts) re-exports them.
+
+Props are Framer's generated ids (`O1r1SHWDe`, `RKNGwH5H8`, …). Every value
+passed comes verbatim from the page XML read through the Framer MCP, so each
+instance renders exactly the variant the design uses — for example the Stack
+Cards carry the real brand logos and flip to reveal their copy on hover, and
+the Button is the outlined pill with its icon reveal, not an approximation.
+
 ## Stack
 
 - Next.js 15 (App Router) + React 19, TypeScript
 - Tailwind CSS v4 (design tokens mirror the Framer colour/text styles)
 - Lenis for the smooth scrolling (Framer's `SmoothScroll` node)
+- `unframer` for the real Framer components
 - Static export-friendly: every route is prerendered
 
 ## Where the Framer design lives in the code

@@ -45,31 +45,37 @@ export const toolkit = {
   cards: [
     {
       name: "Automation",
+      logoVariant: "HLLidWF8J", // Framer Stack Card logo variant
       body: "n8n, Zapier, and Make are how we connect your tools and remove repetitive work. Orders, leads, reports, and notifications flow on their own, so your team can focus on real work.",
       color: "rgb(252, 97, 41)",
     },
     {
       name: "Figma",
+      logoVariant: "g9BVJZgLX", // Framer Stack Card logo variant
       body: "Every system we build starts with a clear design. We use Figma to map user flows, design dashboards and apps, and align with you before anything gets built.",
       color: "rgb(102, 112, 255)",
     },
     {
       name: "Notion",
+      logoVariant: "bdjCZtOrK", // Framer Stack Card logo variant
       body: "Notion is our go-to for internal systems: CRM, project tracking, SOPs, and knowledge bases that your whole team can actually use and maintain.",
       color: "rgb(26, 26, 26)",
     },
     {
       name: "AI",
+      logoVariant: "l6rXf_TbC", // Framer Stack Card logo variant
       body: "We put AI where it saves real time: chat assistants, document processing, data summaries, and smart routing inside your workflows, built with Claude, ChatGPT, and custom models.",
       color: "rgb(0, 204, 153)",
     },
     {
       name: "Airtable",
+      logoVariant: "pIXZjWH9H", // Framer Stack Card logo variant
       body: "When you need a structured database without the enterprise price tag, Airtable lets us build inventory, booking, and operations systems fast and connect them to everything else.",
       color: "rgb(67, 96, 255)",
     },
     {
       name: "Custom Code",
+      logoVariant: "DNB5Cmd6N", // Framer Stack Card logo variant
       body: "When no-code is not enough, we build custom SaaS and web apps with React, Node, and cloud services on Google and AWS, designed to scale with your business.",
       color: "rgb(102, 255, 217)",
     },
@@ -139,6 +145,29 @@ export const pricing = {
         "Campaigns: Small ฿5,900 · Large ฿15,900",
       ],
       cta: { label: "See publio", href: "/publio" },
+      framer: {
+        variant: "mlnrZCeSR",
+        kuexjlf9X: "publio · Social Content",
+        CddCwPX3r:
+          "Monthly content, written, designed, and posted for you. Popular plan: 20 posts a month.",
+        KAvDwa2mg: "฿6,900 / mo",
+        JWZtJpNMj: "rgb(99, 102, 255)",
+        Eq0epDP0Z: "rgb(99, 102, 255)",
+        xght6NwMK:
+          "Starter: 8 posts ฿3,500 · Popular: 20 posts ฿6,900 · Daily: 30 posts ฿9,900",
+        arfNI6SAv: "Content planning + Thai captions in your voice",
+        huW14R4sU: "Visual design for every post",
+        FUOzMkbUW: "Scheduled posting to Facebook (included)",
+        ltSoS7hzq:
+          "Add LINE OA +฿900 · Instagram +฿900 · Google Business +฿1,200",
+        sXH2L9wod: "Shared calendar, you approve before it goes live",
+        GZYXKQ6zh: "Add-ons: SEO +฿4,500 · AEO +฿3,500 / mo",
+        RUpRJMeBT: "On-site photo shoot ฿6,900 per visit",
+        QYS454DuF: "Campaigns: Small ฿5,900 · Large ฿15,900",
+        TQIH2hR27: "/publio",
+        jgm1srukt: "rgb(99, 102, 255)",
+        tzMLDe9St: "rgb(255, 255, 255)",
+      },
     },
     {
       title: "Custom Project",
@@ -158,6 +187,27 @@ export const pricing = {
         "Ongoing maintenance plans available",
       ],
       cta: { label: "Start a project", href: "#contact" },
+      framer: {
+        variant: "mlnrZCeSR",
+        kuexjlf9X: "Custom Project",
+        CddCwPX3r:
+          "Websites, automation, LINE, AI, or anything digital. Here's how a project with us goes.",
+        KAvDwa2mg: "Quote in 3 days",
+        JWZtJpNMj: "rgb(67, 96, 255)",
+        Eq0epDP0Z: "rgb(67, 96, 255)",
+        xght6NwMK: "1. Zoom call: you show us the case, we ask about the problem",
+        arfNI6SAv: "2. We come back with a solution and a mock-up",
+        huW14R4sU: "3. We agree on timeline and cost, no surprises",
+        FUOzMkbUW: "4. We deliver, then stay on for maintenance",
+        ltSoS7hzq: "Scoped to your budget, from small fixes to full systems",
+        sXH2L9wod: "Straightforward communication, fast turnaround",
+        GZYXKQ6zh: "Built to be easy for your team to use",
+        RUpRJMeBT: "Adapted to how you work, not a template",
+        QYS454DuF: "Ongoing maintenance plans available",
+        TQIH2hR27: "/#contact",
+        jgm1srukt: "rgb(67, 96, 255)",
+        tzMLDe9St: "rgb(255, 255, 255)",
+      },
     },
   ],
   bookACall: {

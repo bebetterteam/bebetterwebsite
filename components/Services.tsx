@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FramerServicesGraphic } from "./framer";
 import { services } from "@/lib/site";
 
 /**
  * Mirrors the Framer "ServicesSection" (nodeId lTpVR4yl_): a sticky
- * "What we do" column on the left and five 100vh service panels on the right,
- * each tinting the section background as it scrolls through.
+ * "What we do" column and five 100vh panels, each carrying the real Framer
+ * Services-Graphic (dQApjyJi7) at the rotation the design specifies.
  */
 export default function Services() {
   const ref = useRef<HTMLElement>(null);
@@ -37,10 +38,8 @@ export default function Services() {
     <section
       id="services"
       ref={ref}
-      className="relative w-full px-6 py-[192px] transition-colors duration-700 ease-out"
-      style={{ backgroundColor: "white" }}
+      className="relative w-full bg-white px-6 py-[192px]"
     >
-      {/* ServicesScrollSection — the colour that follows the active panel */}
       <div
         className="pointer-events-none absolute inset-0 transition-colors duration-700 ease-out"
         style={{ backgroundColor: tint, opacity: 0.14 }}
@@ -65,16 +64,13 @@ export default function Services() {
                 <h3 className="t-h3">{item.title}</h3>
                 <p className="t-body-big">{item.body}</p>
 
-                {/* Services-Graphic — the small rotating 3D chip */}
-                <div
-                  className="mx-auto mt-10 h-[120px] w-[120px] rounded-[28px] transition-transform duration-700 ease-out md:absolute md:bottom-[72px] md:left-1/2 md:mt-0 md:-translate-x-1/2"
-                  style={{
-                    background: `linear-gradient(140deg, ${item.tint}, rgba(255,255,255,0.4))`,
-                    rotate: `${item.rotation}deg`,
-                    boxShadow: `0 24px 60px ${item.tint}40`,
-                  }}
-                  aria-hidden
-                />
+                <div className="mx-auto mt-10 md:absolute md:bottom-[72px] md:left-1/2 md:mt-0 md:-translate-x-1/2">
+                  <FramerServicesGraphic
+                    locale=""
+                    f5o7dTxzX={String(item.rotation)}
+                    style={{ width: 120, height: 120 }}
+                  />
+                </div>
               </div>
             ))}
           </div>

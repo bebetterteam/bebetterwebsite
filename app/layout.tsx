@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Public_Sans } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
+import "@/framer/styles.css";
 
 const publicSans = Public_Sans({
   subsets: ["latin"],

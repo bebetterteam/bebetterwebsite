@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Button from "./Button";
+import { FramerButton } from "./framer";
 import { contact, nav } from "@/lib/site";
 
 /**
@@ -21,10 +21,17 @@ export default function Contact() {
           <p className="t-body-big max-w-[640px] text-white/70">
             {contact.body}
           </p>
-          <Button
-            label={contact.cta.label}
-            href="mailto:hello@bebetter.co.th"
-            icon="Phone"
+          <FramerButton
+            locale=""
+            variant="DolaGztjE"
+            O1r1SHWDe={contact.cta.label}
+            YAeBepFkC="Phone"
+            bGXKran9l="mailto:hello@bebetter.co.th"
+            IzpkIlCCL="rgb(67, 96, 255)"
+            E3sMJqdyg="rgb(255, 255, 255)"
+            jbqbpFWTR="rgb(255, 255, 255)"
+            iiNMG_vXP="rgb(67, 96, 255)"
+            IJooVlaof="Back"
           />
         </div>
 
