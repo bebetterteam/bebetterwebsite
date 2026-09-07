@@ -35,7 +35,7 @@ export default function Hero() {
     <section id="home" className="relative h-screen w-full">
       <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-visible">
         {/* Framer "Hero Ticker" (rEXB_BAtk), inset -24px like the design */}
-        <div className="pointer-events-none absolute inset-x-[-24px] top-1/2 -translate-y-1/2">
+        <div className="hero-ticker pointer-events-none absolute inset-x-[-24px] top-1/2 -translate-y-1/2 overflow-hidden">
           <FramerHeroTicker locale="" title={hero.ticker} style={{ width: "100%" }} />
         </div>
 

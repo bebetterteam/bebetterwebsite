@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useIsPhone } from "@/lib/useIsPhone";
 import { FramerStackCard } from "./framer";
 import { toolkit } from "@/lib/site";
 
@@ -17,19 +18,34 @@ import { toolkit } from "@/lib/site";
  */
 function ToolkitCard({ card }: { card: (typeof toolkit.cards)[number] }) {
   const [flipped, setFlipped] = useState(false);
+  const isPhone = useIsPhone();
+
+  // Framer ships four variants: Desktop / Desktop Flipped / Mobile / Mobile - Fliped.
+  const variant = isPhone
+    ? flipped
+      ? "ARkixROtZ"
+      : "KgkFODpCb"
+    : flipped
+      ? "t6maPZddi"
+      : "fmEmcsaJN";
 
   return (
     <div
-      onMouseEnter={() => setFlipped(true)}
-      onMouseLeave={() => setFlipped(false)}
+      onMouseEnter={() => !isPhone && setFlipped(true)}
+      onMouseLeave={() => !isPhone && setFlipped(false)}
       onFocus={() => setFlipped(true)}
       onBlur={() => setFlipped(false)}
+      // Phones have no hover, so the copy would never be reachable without this.
+      onClick={() => setFlipped((v) => !v)}
+      role="button"
+      aria-pressed={flipped}
+      aria-label={`${card.name} — show details`}
       tabIndex={0}
-      className="rounded-[32px] outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+      className="cursor-pointer rounded-[32px] outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
     >
       <FramerStackCard
         locale=""
-        variant={flipped ? "t6maPZddi" : "fmEmcsaJN"}
+        variant={variant}
         Q3K9AU1Xx={card.logoVariant}
         qU19CQxpY="0"
         i7Dy5tkX2={card.name}

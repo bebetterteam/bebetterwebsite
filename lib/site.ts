@@ -150,7 +150,7 @@ export const pricing = {
         kuexjlf9X: "publio · Social Content",
         CddCwPX3r:
           "Monthly content, written, designed, and posted for you. Popular plan: 20 posts a month.",
-        KAvDwa2mg: "฿6,900 / mo",
+        KAvDwa2mg: "฿6,900",
         JWZtJpNMj: "rgb(99, 102, 255)",
         Eq0epDP0Z: "rgb(99, 102, 255)",
         xght6NwMK:
@@ -168,6 +168,9 @@ export const pricing = {
         jgm1srukt: "rgb(99, 102, 255)",
         tzMLDe9St: "rgb(255, 255, 255)",
       },
+      // The Framer card hardcodes these two strings; see components/Pricing.tsx.
+      ctaLabel: "See publio",
+      priceSuffix: "/ month",
     },
     {
       title: "Custom Project",
@@ -208,6 +211,8 @@ export const pricing = {
         jgm1srukt: "rgb(67, 96, 255)",
         tzMLDe9St: "rgb(255, 255, 255)",
       },
+      ctaLabel: "Start a project",
+      priceSuffix: "",
     },
   ],
   bookACall: {

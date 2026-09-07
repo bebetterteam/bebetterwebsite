@@ -208,19 +208,13 @@ html.lenis body {
   }
 }
 
-/* Hero ticker — Framer "Hero Ticker" (nodeId rEXB_BAtk) */
-.ticker-text span {
-  font-size: clamp(44px, 11.5vw, 168px);
-  font-weight: 800;
-  line-height: 1.05em;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-}
-.ticker-track {
-  animation: ticker-scroll 30s linear infinite;
-  will-change: transform;
-}
-@keyframes ticker-scroll {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-50%, 0, 0); }
+/* Hero ticker — the real Framer "Hero Ticker" component (nodeId rEXB_BAtk).
+   Framer ships one size for it; on phones the profile card covers most of the
+   width, so the full-size type only shows letter fragments. Scale the text
+   down for the phone breakpoint. */
+@media (max-width: 809px) {
+  .hero-ticker :is(h1, h2, h3, h4, p, span, div) {
+    font-size: 34px !important;
+    line-height: 1.05em !important;
+  }
 }
