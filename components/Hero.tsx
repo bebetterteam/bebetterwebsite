@@ -8,6 +8,7 @@ import {
   FramerMemoji,
   FramerSkillsList,
 } from "./framer";
+import Logo from "./Logo";
 import { hero } from "@/lib/site";
 
 /** The six 3D props from the Framer "3d-elements" frame (nodeId PNRWhgVVX). */
@@ -82,14 +83,7 @@ export default function Hero() {
 
           {/* 280 × 280 glass card, radius 48 */}
           <div className="flex h-[220px] w-[220px] items-center justify-center rounded-[38px] bg-white/72 p-8 shadow-[0_24px_80px_rgba(0,0,0,0.10)] backdrop-blur-xl md:h-[280px] md:w-[280px] md:rounded-[48px]">
-            <Image
-              src="/logo.svg"
-              alt="Bebetter"
-              width={220}
-              height={220}
-              priority
-              className="h-full w-full object-contain"
-            />
+            <Logo className="h-full w-full object-contain" />
           </div>
 
           {/* Clients row — Framer "Memoji" (kpE6gFYsF) ×3 + tagline */}

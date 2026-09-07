@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "./Logo";
 import { FramerButton } from "./framer";
 import { contact, nav } from "@/lib/site";
 
@@ -36,8 +37,12 @@ export default function Contact() {
         </div>
 
         <div className="flex flex-col gap-10 border-t border-white/10 pt-12 md:flex-row md:justify-between">
-          <div className="flex flex-col gap-3">
-            <span className="t-wordmark text-left">Bebetter</span>
+          <div className="flex flex-col items-start gap-4">
+            {/* The mark is blue + black on white, so it sits on a white chip
+                here rather than being inverted (which would kill the orange dot). */}
+            <span className="inline-flex rounded-2xl bg-white px-5 py-3">
+              <Logo className="h-12 w-auto" />
+            </span>
             <span className="t-span text-white/50">{contact.location}</span>
           </div>
 

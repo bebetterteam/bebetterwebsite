@@ -62,8 +62,11 @@ in the file that owns them:
    could not be read. [components/Contact.tsx](components/Contact.tsx) builds one
    from the project's own type and colour styles. **Replace the placeholder
    email, LINE link and address.**
-2. **Hero profile card.** The 280×280 glass card is empty in Framer; it shows a
-   "Bb" mark. Drop in a logo or photo.
+2. **Logo.** Save the Bebetter mark as `public/logo.png` (or `.svg` — then change
+   the one `src` in [components/Logo.tsx](components/Logo.tsx)). It is picked up
+   automatically by the hero card and the footer, with no other code change;
+   until the file exists both fall back to `public/logo-placeholder.svg`.
+   The browser tab icon is separate — replace `public/favicon.svg` too.
 3. **Client avatars.** The `Memoji` component's images were not reachable, so
    the three avatars are brand-coloured circles.
 4. **Project / legal images.** Every Image field in the CMS is `null`, so covers
