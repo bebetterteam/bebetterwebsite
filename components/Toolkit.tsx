@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { FramerStackCard } from "./framer";
 import { toolkit } from "@/lib/site";
 
@@ -9,6 +10,36 @@ import { toolkit } from "@/lib/site";
  * 3 × 2 grid of the real Framer Stack Cards (ZYBsXIAxG), each pinned to the
  * brand-logo variant the design uses, with the large purple cube behind.
  */
+/**
+ * The Framer Stack Card keeps its copy on the "Desktop Flipped" variant
+ * (t6maPZddi) and shows only the brand logo on "Desktop" (fmEmcsaJN), so the
+ * flip is driven from here on hover / focus.
+ */
+function ToolkitCard({ card }: { card: (typeof toolkit.cards)[number] }) {
+  const [flipped, setFlipped] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
+      onFocus={() => setFlipped(true)}
+      onBlur={() => setFlipped(false)}
+      tabIndex={0}
+      className="rounded-[32px] outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+    >
+      <FramerStackCard
+        locale=""
+        variant={flipped ? "t6maPZddi" : "fmEmcsaJN"}
+        Q3K9AU1Xx={card.logoVariant}
+        qU19CQxpY="0"
+        i7Dy5tkX2={card.name}
+        RKNGwH5H8={`<p>${card.body}</p>`}
+        style={{ width: "100%" }}
+      />
+    </div>
+  );
+}
+
 export default function Toolkit() {
   return (
     <section
@@ -24,16 +55,7 @@ export default function Toolkit() {
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {toolkit.cards.map((card) => (
-            <FramerStackCard
-              key={card.name}
-              locale=""
-              variant="fmEmcsaJN"
-              Q3K9AU1Xx={card.logoVariant}
-              qU19CQxpY="0"
-              i7Dy5tkX2={card.name}
-              RKNGwH5H8={`<p>${card.body}</p>`}
-              style={{ width: "100%" }}
-            />
+            <ToolkitCard key={card.name} card={card} />
           ))}
         </div>
       </div>
