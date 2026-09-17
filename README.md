@@ -31,6 +31,7 @@ the Button is the outlined pill with its icon reveal, not an approximation.
 - Tailwind CSS v4 (design tokens mirror the Framer colour/text styles)
 - Lenis for the smooth scrolling (Framer's `SmoothScroll` node)
 - `unframer` for the real Framer components
+- Magic UI `MorphingText` for the rotating pill in the hero
 - Static export-friendly: every route is prerendered
 
 ## Where the Framer design lives in the code
@@ -44,6 +45,7 @@ the Button is the outlined pill with its icon reveal, not an approximation.
 | `StackSection` logos | [lib/brandLogos.ts](lib/brandLogos.ts) (`npm run logos`) |
 | `SmoothScroll` (`fbi4b6Sdg`)                   | [components/SmoothScroll.tsx](components/SmoothScroll.tsx) |
 | `Top Nav` (`DiSK89Ch4`)                        | [components/TopNav.tsx](components/TopNav.tsx) |
+| Hero rotating pill (was `Skills List`, `CLUNp73Ij`) | [components/ui/morphing-text.tsx](components/ui/morphing-text.tsx) |
 | `HeroSection` (`ByUyGiiNs`) + `Hero Ticker`    | [components/Hero.tsx](components/Hero.tsx), [components/HeroTicker.tsx](components/HeroTicker.tsx) |
 | `AboutSection` (`kiUiztjcw`), 350vh card stack | [components/About.tsx](components/About.tsx) |
 | `StackSection` (`AIVi4q8BD`) "Our Toolkit"     | [components/Toolkit.tsx](components/Toolkit.tsx) |

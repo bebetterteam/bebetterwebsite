@@ -6,8 +6,8 @@ import {
   FramerButton,
   FramerHeroTicker,
   FramerMemoji,
-  FramerSkillsList,
 } from "./framer";
+import { MorphingText } from "./ui/morphing-text";
 import Logo from "./Logo";
 import { hero } from "@/lib/site";
 
@@ -72,12 +72,15 @@ export default function Hero() {
             {hero.wordmark}
           </span>
 
-          {/* Framer "Skills List" (CLUNp73Ij), Variant 1 — top -44px, 283px wide */}
-          <div className="absolute -top-11 left-1/2 -translate-x-1/2">
-            <FramerSkillsList
-              locale=""
-              variant="xVFUGGmVI"
-              style={{ width: 283, height: 32 }}
+          {/* Framer's "Skills List" slot (CLUNp73Ij) — same 283 × 32 pill at
+              top -44px, but the rotating text is Magic UI's MorphingText.
+              The white pill stays outside the morph: the component's threshold
+              filter would otherwise snap the background to solid too. */}
+          <div className="absolute -top-11 left-1/2 flex h-8 w-[283px] -translate-x-1/2 items-center justify-center overflow-hidden rounded-3xl bg-white px-3">
+            <MorphingText
+              texts={hero.skills}
+              blurAmount={1.6}
+              className="h-8 w-full max-w-none text-[14px] leading-8 font-medium tracking-[0] md:h-8 lg:text-[14px]"
             />
           </div>
 
