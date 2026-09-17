@@ -32,6 +32,7 @@ the Button is the outlined pill with its icon reveal, not an approximation.
 - Lenis for the smooth scrolling (Framer's `SmoothScroll` node)
 - `unframer` for the real Framer components
 - Magic UI `MorphingText` for the rotating pill in the hero
+- Animate UI `UserPresenceAvatar` for the hero avatar row
 - Static export-friendly: every route is prerendered
 
 ## Where the Framer design lives in the code
@@ -46,6 +47,7 @@ the Button is the outlined pill with its icon reveal, not an approximation.
 | `SmoothScroll` (`fbi4b6Sdg`)                   | [components/SmoothScroll.tsx](components/SmoothScroll.tsx) |
 | `Top Nav` (`DiSK89Ch4`)                        | [components/TopNav.tsx](components/TopNav.tsx) |
 | Hero rotating pill (was `Skills List`, `CLUNp73Ij`) | [components/ui/morphing-text.tsx](components/ui/morphing-text.tsx) |
+| Hero avatar row (was `Memoji`, `kpE6gFYsF`) | [components/animate-ui/components/community/user-presence-avatar/](components/animate-ui/components/community/user-presence-avatar/) |
 | `HeroSection` (`ByUyGiiNs`) + `Hero Ticker`    | [components/Hero.tsx](components/Hero.tsx), [components/HeroTicker.tsx](components/HeroTicker.tsx) |
 | `AboutSection` (`kiUiztjcw`), 350vh card stack | [components/About.tsx](components/About.tsx) |
 | `StackSection` (`AIVi4q8BD`) "Our Toolkit"     | [components/Toolkit.tsx](components/Toolkit.tsx) |
@@ -77,8 +79,10 @@ in the file that owns them:
    To change the logo, replace `logo-source.png` and re-run `npm run logo`.
    [components/Logo.tsx](components/Logo.tsx) falls back to
    `public/logo-placeholder.svg` if a file is missing.
-3. **Client avatars.** The `Memoji` component's images were not reachable, so
-   the three avatars are brand-coloured circles.
+3. **Hero avatars.** Animate UI's `UserPresenceAvatar` replaces the Framer
+   `Memoji`s, which had no images set. The roster is `hero.team` in
+   [lib/site.ts](lib/site.ts) and currently holds three placeholders showing
+   initials — add `src` (a file in `public/team/`) and the real name to each.
 4. **Project / legal images.** Every Image field in the CMS is `null`, so covers
    fall back to a brand gradient with a 3D prop.
 5. **Our Toolkit logos.** The Framer Stack Card only carries logos for a fixed

@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* This site is light-only. Tailwind v4 wires `dark:` to prefers-color-scheme
+   by default, so components pulled from registries (Animate UI, shadcn) flip
+   to their dark palette on a viewer whose OS is in dark mode. Bind the variant
+   to a `.dark` class instead, which nothing here sets. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ---------------------------------------------------------------
    Design tokens — mirrored from the Framer project color styles,
    except the accents below, which follow the brand board instead:

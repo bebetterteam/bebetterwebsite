@@ -16,6 +16,16 @@ export const hero = {
   tagline: "Digital solutions at a price that makes sense · Bangkok",
   cta: { label: "Get a Free Quote", href: "#contact" },
   ticker: "BEBETTER ",
+  /**
+   * Hero avatar row. Placeholders for now — drop a photo in public/team/ and
+   * set `src`, then swap `fallback` (initials) and `tooltip` (name).
+   * `online: false` renders the person in the greyed-out second group.
+   */
+  team: [
+    { id: 1, fallback: "MK", tooltip: "Marketing", online: true },
+    { id: 2, fallback: "CT", tooltip: "Content", online: true },
+    { id: 3, fallback: "DV", tooltip: "Dev", online: true },
+  ],
   // Verbatim from the Framer "Skills List" component (nodeId CLUNp73Ij).
   // NOTE: these strings are leftovers from the original Framer template and read
   // like a personal portfolio rather than Bebetter. Suggested replacement:
