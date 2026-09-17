@@ -81,9 +81,10 @@ in the file that owns them:
    `public/logo-placeholder.svg` if a file is missing.
 3. **Team avatars.** Animate UI's `UserPresenceAvatar` sits under the last
    About Us card (the Framer `Memoji`s it replaces had no images set). The
-   roster is `about.team` in [lib/site.ts](lib/site.ts) and currently holds
-   three placeholders showing initials — add `src` (a file in `public/team/`)
-   and the real name to each.
+   roster is `about.team` in [lib/site.ts](lib/site.ts): Phee, Tent and Arty.
+   Drop the originals in `public/team/raw/` and run `npm run team` — they are
+   sorted by filename, mapped to those three in order, EXIF-rotated and cropped
+   square. Until a photo exists the initials show instead.
 4. **Project / legal images.** Every Image field in the CMS is `null`, so covers
    fall back to a brand gradient with a 3D prop.
 5. **Our Toolkit logos.** The Framer Stack Card only carries logos for a fixed

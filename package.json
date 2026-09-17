@@ -10,7 +10,8 @@
     "dev:clean": "rm -rf .next && next dev",
     "framer": "unframer",
     "logo": "python3 scripts/prepare-logo.py",
-    "logos": "node scripts/gen-brand-logos.cjs"
+    "logos": "node scripts/gen-brand-logos.cjs",
+    "team": "python3 scripts/prepare-team.py"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.20",

@@ -39,14 +39,15 @@ export const about = {
   cta: { label: "Book a Zoom Call", href: "#contact" },
   /**
    * The avatar row under the last card — the one about the three-part team.
-   * Placeholders for now: drop a photo in public/team/ and set `src`, then
-   * swap `fallback` (initials) and `tooltip` (name). `online: false` puts a
-   * person in the greyed-out second group.
+   * Photos live in public/team/; `npm run team` squares and orients whatever
+   * is dropped in public/team/raw/. Until a file exists the initials in
+   * `fallback` show instead. `online: false` puts a person in the greyed-out
+   * second group.
    */
   team: [
-    { id: 1, fallback: "MK", tooltip: "Marketing", online: true },
-    { id: 2, fallback: "CT", tooltip: "Content", online: true },
-    { id: 3, fallback: "DV", tooltip: "Dev", online: true },
+    { id: 1, src: "/team/phee.jpg", fallback: "PH", tooltip: "Phee", online: true },
+    { id: 2, src: "/team/tent.jpg", fallback: "TN", tooltip: "Tent", online: true },
+    { id: 3, src: "/team/arty.jpg", fallback: "AR", tooltip: "Arty", online: true },
   ],
 };
 
