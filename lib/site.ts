@@ -42,42 +42,74 @@ export const about = {
 
 export const toolkit = {
   title: "Our Toolkit",
+  /**
+   * `logoVariant` picks a logo the Framer Stack Card already carries.
+   * `brandLogo` keys into lib/brandLogos.ts for the providers it does not —
+   * components/Toolkit.tsx swaps the card's SVG for that mark.
+   */
   cards: [
     {
       name: "Automation",
       logoVariant: "HLLidWF8J", // Framer Stack Card logo variant
       body: "n8n, Zapier, and Make are how we connect your tools and remove repetitive work. Orders, leads, reports, and notifications flow on their own, so your team can focus on real work.",
-      color: "rgb(252, 97, 41)",
-    },
-    {
-      name: "Figma",
-      logoVariant: "g9BVJZgLX", // Framer Stack Card logo variant
-      body: "Every system we build starts with a clear design. We use Figma to map user flows, design dashboards and apps, and align with you before anything gets built.",
-      color: "rgb(102, 112, 255)",
-    },
-    {
-      name: "Notion",
-      logoVariant: "bdjCZtOrK", // Framer Stack Card logo variant
-      body: "Notion is our go-to for internal systems: CRM, project tracking, SOPs, and knowledge bases that your whole team can actually use and maintain.",
-      color: "rgb(26, 26, 26)",
-    },
-    {
-      name: "AI",
-      logoVariant: "l6rXf_TbC", // Framer Stack Card logo variant
-      body: "We put AI where it saves real time: chat assistants, document processing, data summaries, and smart routing inside your workflows, built with Claude, ChatGPT, and custom models.",
-      color: "rgb(0, 204, 153)",
-    },
-    {
-      name: "Airtable",
-      logoVariant: "pIXZjWH9H", // Framer Stack Card logo variant
-      body: "When you need a structured database without the enterprise price tag, Airtable lets us build inventory, booking, and operations systems fast and connect them to everything else.",
-      color: "rgb(67, 96, 255)",
     },
     {
       name: "Custom Code",
-      logoVariant: "DNB5Cmd6N", // Framer Stack Card logo variant
+      logoVariant: "DNB5Cmd6N",
+      brandLogo: "code",
       body: "When no-code is not enough, we build custom SaaS and web apps with React, Node, and cloud services on Google and AWS, designed to scale with your business.",
-      color: "rgb(102, 255, 217)",
+    },
+    {
+      name: "Figma",
+      logoVariant: "g9BVJZgLX",
+      body: "Every system we build starts with a clear design. We use Figma to map user flows, design dashboards and apps, and align with you before anything gets built.",
+    },
+    {
+      name: "AI",
+      logoVariant: "l6rXf_TbC",
+      body: "We put AI where it saves real time: chat assistants, document processing, data summaries, and smart routing inside your workflows, built with Claude, ChatGPT, and custom models.",
+    },
+    {
+      name: "Supabase",
+      logoVariant: "KT4xl58Eu",
+      brandLogo: "supabase",
+      body: "Postgres with authentication, file storage, and realtime built in. It is our default when a project needs a proper database and user accounts without standing up a backend from scratch.",
+    },
+    {
+      name: "Neon Database",
+      logoVariant: "KT4xl58Eu",
+      brandLogo: "neon",
+      body: "Serverless Postgres that scales to zero and branches like Git. We reach for it when a database should stay cheap while the product is small and grow without a migration later.",
+    },
+    {
+      name: "n8n",
+      logoVariant: "KT4xl58Eu",
+      brandLogo: "n8n",
+      body: "The automation engine we host ourselves. When a workflow touches sensitive data or needs custom code in the middle of it, n8n keeps the whole thing on infrastructure you own.",
+    },
+    {
+      name: "Vercel",
+      logoVariant: "KT4xl58Eu",
+      brandLogo: "vercel",
+      body: "Where the sites and apps we build actually run. Every push deploys, every change gets a preview link you can review, and a global edge network keeps pages fast in Thailand and abroad.",
+    },
+    {
+      name: "GitHub",
+      logoVariant: "KT4xl58Eu",
+      brandLogo: "github",
+      body: "Every line we write for you lives in a repository you own. Full version history, code review before anything merges, and automated checks that run before it reaches production.",
+    },
+    {
+      name: "Cloudflare",
+      logoVariant: "KT4xl58Eu",
+      brandLogo: "cloudflare",
+      body: "DNS, CDN, and protection sitting in front of everything we ship. It keeps your site fast, absorbs bad traffic before it reaches you, and handles certificates so HTTPS just works.",
+    },
+    {
+      name: "AI Agent",
+      logoVariant: "KT4xl58Eu",
+      brandLogo: "claude",
+      body: "Assistants that do the work, not just answer questions. We build agents on Claude that read your documents, update your systems, and hand back to a human at the points that matter.",
     },
   ],
 };

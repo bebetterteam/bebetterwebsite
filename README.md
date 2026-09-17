@@ -41,6 +41,7 @@ the Button is the outlined pill with its icon reveal, not an approximation.
 | Page `/` (nodeId `augiA20Il`) copy             | [lib/site.ts](lib/site.ts) |
 | CMS collection "Projects" (`kOgwlcBkr`)        | [lib/projects.ts](lib/projects.ts) |
 | CMS collection "Legal" (`T0aOdsSzY`)           | [lib/legal.ts](lib/legal.ts) |
+| `StackSection` logos | [lib/brandLogos.ts](lib/brandLogos.ts) (`npm run logos`) |
 | `SmoothScroll` (`fbi4b6Sdg`)                   | [components/SmoothScroll.tsx](components/SmoothScroll.tsx) |
 | `Top Nav` (`DiSK89Ch4`)                        | [components/TopNav.tsx](components/TopNav.tsx) |
 | `HeroSection` (`ByUyGiiNs`) + `Hero Ticker`    | [components/Hero.tsx](components/Hero.tsx), [components/HeroTicker.tsx](components/HeroTicker.tsx) |
@@ -78,10 +79,17 @@ in the file that owns them:
    the three avatars are brand-coloured circles.
 4. **Project / legal images.** Every Image field in the CMS is `null`, so covers
    fall back to a brand gradient with a 3D prop.
-5. **Hero skills pill.** The strings are verbatim from Framer but are leftovers
+5. **Our Toolkit logos.** The Framer Stack Card only carries logos for a fixed
+   set (Chat GPT, Airtable, Figma, Framer, Google, Notion, Zapier, …). For
+   Supabase, Neon, n8n, Vercel, GitHub, Cloudflare and Claude the card renders
+   with a stand-in variant and [components/Toolkit.tsx](components/Toolkit.tsx)
+   swaps its SVG slot for the official mark — paths from `simple-icons` (CC0)
+   with each brand's own hex. Adding a card that Framer *does* have a logo for
+   is simpler: set `logoVariant` and drop `brandLogo`.
+6. **Hero skills pill.** The strings are verbatim from Framer but are leftovers
    from the original template ("UX/UI Expertise", …). A suggested Bebetter
    replacement is commented in [lib/site.ts](lib/site.ts).
-6. **Legal pages** still carry the template's `cohesion.framer.ai` boilerplate,
+7. **Legal pages** still carry the template's `cohesion.framer.ai` boilerplate,
    copied verbatim from the CMS. Rewrite before launch.
 
 ## Develop

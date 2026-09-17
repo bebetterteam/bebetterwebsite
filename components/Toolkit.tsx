@@ -1,24 +1,52 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import { useIsPhone } from "@/lib/useIsPhone";
+import { useEffect, useRef, useState } from "react";
 import { FramerStackCard } from "./framer";
+import { useIsPhone } from "@/lib/useIsPhone";
+import { brandLogoSvg } from "@/lib/brandLogos";
 import { toolkit } from "@/lib/site";
 
 /**
- * Mirrors the Framer "StackSection" (nodeId AIVi4q8BD): "Our Toolkit" over a
- * 3 × 2 grid of the real Framer Stack Cards (ZYBsXIAxG), each pinned to the
- * brand-logo variant the design uses, with the large purple cube behind.
+ * The Framer Stack Card (ZYBsXIAxG) only ships logos for a fixed set of tools —
+ * Chat GPT, Airtable, Figma, Framer, Google, Notion, Zapier and a few more.
+ * For the providers it does not carry (Supabase, Neon, n8n, Vercel, GitHub,
+ * Cloudflare, Claude) the card renders with a stand-in variant and its SVG slot
+ * is swapped for the official mark from lib/brandLogos.ts.
  */
-/**
- * The Framer Stack Card keeps its copy on the "Desktop Flipped" variant
- * (t6maPZddi) and shows only the brand logo on "Desktop" (fmEmcsaJN), so the
- * flip is driven from here on hover / focus.
- */
+function useBrandLogoSwap(
+  ref: React.RefObject<HTMLDivElement | null>,
+  brandLogo: string | undefined,
+) {
+  useEffect(() => {
+    const root = ref.current;
+    if (!root || !brandLogo) return;
+
+    const markup = brandLogoSvg(brandLogo);
+    if (!markup) return;
+
+    const apply = () => {
+      for (const slot of root.querySelectorAll<HTMLElement>(".svgContainer")) {
+        if (slot.dataset.brand === brandLogo) continue;
+        slot.dataset.brand = brandLogo;
+        slot.innerHTML = markup;
+      }
+    };
+
+    apply();
+    // The card swaps variants on flip, which remounts the SVG slot.
+    const observer = new MutationObserver(apply);
+    observer.observe(root, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, [ref, brandLogo]);
+}
+
 function ToolkitCard({ card }: { card: (typeof toolkit.cards)[number] }) {
+  const ref = useRef<HTMLDivElement>(null);
   const [flipped, setFlipped] = useState(false);
   const isPhone = useIsPhone();
+
+  useBrandLogoSwap(ref, "brandLogo" in card ? card.brandLogo : undefined);
 
   // Framer ships four variants: Desktop / Desktop Flipped / Mobile / Mobile - Fliped.
   const variant = isPhone
@@ -31,6 +59,7 @@ function ToolkitCard({ card }: { card: (typeof toolkit.cards)[number] }) {
 
   return (
     <div
+      ref={ref}
       onMouseEnter={() => !isPhone && setFlipped(true)}
       onMouseLeave={() => !isPhone && setFlipped(false)}
       onFocus={() => setFlipped(true)}
@@ -56,6 +85,10 @@ function ToolkitCard({ card }: { card: (typeof toolkit.cards)[number] }) {
   );
 }
 
+/**
+ * Mirrors the Framer "StackSection" (nodeId AIVi4q8BD): "Our Toolkit" over a
+ * grid of the real Framer Stack Cards, with the large purple cube behind.
+ */
 export default function Toolkit() {
   return (
     <section
