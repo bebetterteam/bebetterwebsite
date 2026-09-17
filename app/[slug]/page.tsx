@@ -56,7 +56,7 @@ export default async function ProjectPage({ params }: Params) {
             className="mt-12 flex aspect-[16/9] w-full items-center justify-center overflow-hidden rounded-[32px]"
             style={{
               background:
-                "linear-gradient(140deg, rgb(102,112,255), rgb(67,96,255))",
+                "linear-gradient(140deg, rgb(67,96,255), rgb(38,58,190))",
             }}
           >
             <Image

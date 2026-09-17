@@ -122,7 +122,7 @@ export const services = {
       number: "01",
       title: "01 — Social Content & Marketing",
       body: "Monthly content that keeps your brand showing up. We plan the campaign, write Thai captions in your voice, design the visuals, and post on schedule to Facebook, with LINE OA, Instagram, and Google Business as add-ons. You review everything on a shared calendar before it goes live. Powered by publio, our own content system. From ฿3,500 a month.",
-      tint: "rgb(102, 112, 255)",
+      tint: "rgb(189, 255, 92)",
       rotation: -10,
     },
     {
@@ -136,7 +136,7 @@ export const services = {
       number: "03",
       title: "03 — Digital Solutions, Automation & LINE",
       body: "Websites, internal tools, and the plumbing between them. We build sites and web apps, connect your tools with automations so orders, leads, and reports move by themselves, and develop on the LINE API: chatbots, rich menus, order flows, and notifications your customers actually use. Whatever the size, we scope it to your budget and ship fast.",
-      tint: "rgb(0, 204, 153)",
+      tint: "rgb(26, 26, 26)",
       rotation: -15,
     },
     {
@@ -150,7 +150,7 @@ export const services = {
       number: "05",
       title: "05 — SEO, AEO & Google Business",
       body: "Get found, by people and by AI. SEO keeps your website and articles ranking on Google. AEO (Answer Engine Optimization) makes ChatGPT and other AI assistants recommend your business when customers ask. Google Business keeps your listing, posts, and reviews looking sharp. SEO from ฿4,500 a month, AEO from ฿3,500, Google Business from ฿1,200.",
-      tint: "rgb(102, 255, 217)",
+      tint: "rgb(189, 255, 92)",
       rotation: -5,
     },
   ],
@@ -164,7 +164,7 @@ export const pricing = {
       description:
         "Monthly content, written, designed, and posted for you. Popular plan: 20 posts a month.",
       price: "฿6,900 / mo",
-      accent: "rgb(99, 102, 255)",
+      accent: "rgb(252, 97, 41)",
       lines: [
         "Starter: 8 posts ฿3,500 · Popular: 20 posts ฿6,900 · Daily: 30 posts ฿9,900",
         "Content planning + Thai captions in your voice",
@@ -183,8 +183,8 @@ export const pricing = {
         CddCwPX3r:
           "Monthly content, written, designed, and posted for you. Popular plan: 20 posts a month.",
         KAvDwa2mg: "฿6,900",
-        JWZtJpNMj: "rgb(99, 102, 255)",
-        Eq0epDP0Z: "rgb(99, 102, 255)",
+        JWZtJpNMj: "rgb(252, 97, 41)",
+        Eq0epDP0Z: "rgb(252, 97, 41)",
         xght6NwMK:
           "Starter: 8 posts ฿3,500 · Popular: 20 posts ฿6,900 · Daily: 30 posts ฿9,900",
         arfNI6SAv: "Content planning + Thai captions in your voice",
@@ -197,7 +197,7 @@ export const pricing = {
         RUpRJMeBT: "On-site photo shoot ฿6,900 per visit",
         QYS454DuF: "Campaigns: Small ฿5,900 · Large ฿15,900",
         TQIH2hR27: "/publio",
-        jgm1srukt: "rgb(99, 102, 255)",
+        jgm1srukt: "rgb(252, 97, 41)",
         tzMLDe9St: "rgb(255, 255, 255)",
       },
       // The Framer card hardcodes these two strings; see components/Pricing.tsx.

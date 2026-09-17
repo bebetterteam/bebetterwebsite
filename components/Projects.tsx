@@ -11,10 +11,15 @@ import { publishedProjects } from "@/lib/projects";
  * back to a brand gradient with a 3D prop. Fill Image 1 in the CMS and the
  * cover swaps for the real photo.
  */
+/**
+ * One brand colour per cover, shaded rather than mixed with a second hue, so
+ * each card reads as a single accent from the palette. Nothing sits on these
+ * but the 3D prop, so lime is safe here.
+ */
 const COVERS = [
-  { gradient: "linear-gradient(140deg, rgb(102,112,255), rgb(67,96,255))", prop: "/3d/turquoise-star.png" },
-  { gradient: "linear-gradient(140deg, rgb(102,255,217), rgb(0,204,153))", prop: "/3d/purple-sphere.png" },
-  { gradient: "linear-gradient(140deg, rgb(252,97,41), rgb(252,160,41))", prop: "/3d/blue-cylinder.png" },
+  { gradient: "linear-gradient(140deg, rgb(67,96,255), rgb(38,58,190))", prop: "/3d/turquoise-star.png" },
+  { gradient: "linear-gradient(140deg, rgb(189,255,92), rgb(141,214,49))", prop: "/3d/blue-cylinder.png" },
+  { gradient: "linear-gradient(140deg, rgb(252,97,41), rgb(252,160,41))", prop: "/3d/purple-sphere.png" },
 ];
 
 export default function Projects() {

@@ -28,10 +28,10 @@ export default function Contact() {
             O1r1SHWDe={contact.cta.label}
             YAeBepFkC="Phone"
             bGXKran9l="mailto:hello@bebetter.co.th"
-            IzpkIlCCL="rgb(67, 96, 255)"
-            E3sMJqdyg="rgb(255, 255, 255)"
-            jbqbpFWTR="rgb(255, 255, 255)"
-            iiNMG_vXP="rgb(67, 96, 255)"
+            IzpkIlCCL="rgb(189, 255, 92)"
+            E3sMJqdyg="rgb(26, 26, 26)"
+            jbqbpFWTR="rgb(26, 26, 26)"
+            iiNMG_vXP="rgb(189, 255, 92)"
             IJooVlaof="Back"
           />
         </div>

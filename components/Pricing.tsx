@@ -62,7 +62,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="flex w-full max-w-[800px] flex-col items-start gap-6 rounded-[32px] bg-grey-98 p-8 md:flex-row md:items-center md:justify-between md:p-10">
+        <div className="flex w-full max-w-[800px] flex-col items-start gap-6 rounded-[32px] bg-lime p-8 md:flex-row md:items-center md:justify-between md:p-10">
           <div className="flex flex-col gap-6">
             <h3 className="t-h3 max-w-[600px]">{pricing.bookACall.title}</h3>
             <p className="t-body-big text-left">{pricing.bookACall.body}</p>
