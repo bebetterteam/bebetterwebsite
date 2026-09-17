@@ -80,7 +80,7 @@ export default function Hero() {
               blurAmount={2.6}
               morphTime={0.9}
               cooldownTime={1.5}
-              className="h-[52px] w-full max-w-none text-[22px] leading-[52px] font-semibold tracking-[-0.01em] md:h-[60px] md:leading-[60px] lg:text-[30px]"
+              className="h-[52px] w-full max-w-none text-[22px] leading-[52px] font-semibold tracking-[-0.01em] text-brand-blue md:h-[60px] md:leading-[60px] lg:text-[30px]"
             />
           </div>
 
