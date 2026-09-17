@@ -13,7 +13,6 @@ export const nav = [
 ];
 
 export const hero = {
-  wordmark: "Bebetter",
   tagline: "Digital solutions at a price that makes sense · Bangkok",
   cta: { label: "Get a Free Quote", href: "#contact" },
   ticker: "BEBETTER ",

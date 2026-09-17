@@ -5,9 +5,12 @@
  * so it can be refreshed from upstream. The project does not use the shadcn CLI,
  * hence the manual copy; lib/utils.ts supplies the `cn` it imports.
  *
- * LOCAL CHANGE: `blurAmount` is added (upstream hard-codes 8). The blur is in
- * absolute pixels, so at display sizes it reads as a morph but at the 14px the
- * hero pill uses it dissolves the text completely. Everything else is upstream.
+ * LOCAL CHANGES (everything else is upstream):
+ *  - `blurAmount` — upstream hard-codes 8px. Blur is absolute, so it has to
+ *    scale with the font size or the text either dissolves or barely moves.
+ *  - `morphTime` / `cooldownTime` — upstream hard-codes 1.5s morphing to 0.5s
+ *    settled, so the text is blurred three quarters of the time. Exposing them
+ *    lets a caller trade animation for legibility.
  */
 "use client"
 
@@ -15,10 +18,15 @@ import { useCallback, useEffect, useRef } from "react"
 
 import { cn } from "@/lib/utils"
 
-const morphTime = 1.5
-const cooldownTime = 0.5
+const DEFAULT_MORPH_TIME = 1.5
+const DEFAULT_COOLDOWN_TIME = 0.5
 
-const useMorphingText = (texts: string[], blurAmount: number) => {
+const useMorphingText = (
+  texts: string[],
+  blurAmount: number,
+  morphTime: number,
+  cooldownTime: number
+) => {
   const textIndexRef = useRef(0)
   const morphRef = useRef(0)
   const cooldownRef = useRef(0)
@@ -67,7 +75,7 @@ const useMorphingText = (texts: string[], blurAmount: number) => {
     if (fraction === 1) {
       textIndexRef.current++
     }
-  }, [setStyles])
+  }, [setStyles, morphTime, cooldownTime])
 
   const doCooldown = useCallback(() => {
     morphRef.current = 0
@@ -110,13 +118,26 @@ interface MorphingTextProps {
   texts: string[]
   /** Peak blur in px. Scale it with the font size; upstream default is 8. */
   blurAmount?: number
+  /** Seconds spent morphing between two words. Upstream default is 1.5. */
+  morphTime?: number
+  /** Seconds a word holds fully sharp. Upstream default is 0.5. */
+  cooldownTime?: number
 }
 
-const Texts: React.FC<Pick<MorphingTextProps, "texts" | "blurAmount">> = ({
+const Texts: React.FC<
+  Pick<MorphingTextProps, "texts" | "blurAmount" | "morphTime" | "cooldownTime">
+> = ({
   texts,
   blurAmount = 8,
+  morphTime = DEFAULT_MORPH_TIME,
+  cooldownTime = DEFAULT_COOLDOWN_TIME,
 }) => {
-  const { text1Ref, text2Ref } = useMorphingText(texts, blurAmount)
+  const { text1Ref, text2Ref } = useMorphingText(
+    texts,
+    blurAmount,
+    morphTime,
+    cooldownTime
+  )
   return (
     <>
       <span
@@ -156,6 +177,8 @@ export const MorphingText: React.FC<MorphingTextProps> = ({
   texts,
   className,
   blurAmount,
+  morphTime,
+  cooldownTime,
 }) => (
   <div
     className={cn(
@@ -163,7 +186,12 @@ export const MorphingText: React.FC<MorphingTextProps> = ({
       className
     )}
   >
-    <Texts texts={texts} blurAmount={blurAmount} />
+    <Texts
+      texts={texts}
+      blurAmount={blurAmount}
+      morphTime={morphTime}
+      cooldownTime={cooldownTime}
+    />
     <SvgFilters />
   </div>
 )

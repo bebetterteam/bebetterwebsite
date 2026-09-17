@@ -68,19 +68,19 @@ export default function Hero() {
 
         {/* Profile */}
         <div className="relative z-20 flex flex-col items-center">
-          <span className="absolute -top-[114px] left-1/2 -translate-x-1/2 text-[16px] font-medium whitespace-nowrap">
-            {hero.wordmark}
-          </span>
-
-          {/* Framer's "Skills List" slot (CLUNp73Ij) — same 283 × 32 pill at
-              top -44px, but the rotating text is Magic UI's MorphingText.
-              The white pill stays outside the morph: the component's threshold
-              filter would otherwise snap the background to solid too. */}
-          <div className="absolute -top-11 left-1/2 flex h-8 w-[283px] -translate-x-1/2 items-center justify-center overflow-hidden rounded-3xl bg-white px-3">
+          {/* Took over the Framer "Skills List" slot (CLUNp73Ij), scaled up now
+              that the small wordmark above it is gone. The white pill stays
+              outside the morph: the component's threshold filter would
+              otherwise snap the background to solid along with the text.
+              blurAmount tracks the font size, and the timings hold each word
+              sharp longer than the upstream 1.5s-morph / 0.5s-settle. */}
+          <div className="absolute -top-[76px] left-1/2 flex h-[52px] w-[330px] max-w-[92vw] -translate-x-1/2 items-center justify-center overflow-hidden rounded-[26px] bg-white px-5 md:-top-[86px] md:h-[60px] md:w-[440px] md:rounded-3xl">
             <MorphingText
               texts={hero.skills}
-              blurAmount={1.6}
-              className="h-8 w-full max-w-none text-[14px] leading-8 font-medium tracking-[0] md:h-8 lg:text-[14px]"
+              blurAmount={2.6}
+              morphTime={0.9}
+              cooldownTime={1.5}
+              className="h-[52px] w-full max-w-none text-[22px] leading-[52px] font-semibold tracking-[-0.01em] md:h-[60px] md:leading-[60px] lg:text-[30px]"
             />
           </div>
 
