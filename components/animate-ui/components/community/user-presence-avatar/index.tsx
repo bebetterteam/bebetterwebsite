@@ -7,8 +7,7 @@
  * LOCAL CHANGES (everything else is upstream):
  *  - The roster is a `users` prop instead of the hard-coded demo list, so the
  *    real people live in lib/site.ts. The demo list stays as the default.
- *  - `size` switches between the upstream 48px avatars and a 36px set, which
- *    is what the hero row has space for.
+ *  - `size` adds a 36px and a 64px set next to the upstream 48px one.
  */
 'use client';
 
@@ -85,6 +84,7 @@ const USERS: PresenceUser[] = [
 const SIZES = {
   sm: { avatar: 'size-9 border-2', row: 'h-9 -space-x-2' },
   md: { avatar: 'size-12 border-3', row: 'h-12 -space-x-3' },
+  lg: { avatar: 'size-16 border-4 text-lg', row: 'h-16 -space-x-4' },
 } as const;
 
 const AVATAR_MOTION_TRANSITION = {

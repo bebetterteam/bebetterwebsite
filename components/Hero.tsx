@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FramerButton, FramerHeroTicker } from "./framer";
-import { UserPresenceAvatar } from "./animate-ui/components/community/user-presence-avatar";
 import { MorphingText } from "./ui/morphing-text";
 import Logo from "./Logo";
 import { hero } from "@/lib/site";
@@ -86,14 +85,11 @@ export default function Hero() {
             <Logo variant="mark" className="h-[58%] w-[58%] object-contain" />
           </div>
 
-          {/* Clients row — Framer "Memoji" (kpE6gFYsF) ×3 + tagline */}
-          <div className="absolute -bottom-[104px] left-1/2 flex w-[92vw] max-w-[440px] -translate-x-1/2 flex-col items-center gap-3 md:-bottom-[60px] md:block md:h-9">
-            {/* Animate UI "User Presence Avatar" in place of the Framer Memojis
-                (kpE6gFYsF), which had no images set in the design. */}
-            <span className="relative block md:absolute md:inset-y-0 md:left-0">
-              <UserPresenceAvatar users={hero.team} size="sm" />
-            </span>
-            <span className="t-span text-center text-grey-30 md:absolute md:top-1/2 md:right-0 md:max-w-[320px] md:-translate-y-1/2 md:text-right">
+          {/* Framer's "Clients" row (440 × 36 at bottom -60px). The avatar
+              group that used to sit on its left now lives in About Us, so the
+              tagline has the row to itself. */}
+          <div className="absolute -bottom-[72px] left-1/2 flex w-[92vw] max-w-[440px] -translate-x-1/2 justify-center md:-bottom-[60px] md:h-9 md:items-center">
+            <span className="t-span text-center text-grey-30">
               {hero.tagline}
             </span>
           </div>

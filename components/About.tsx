@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { FramerAboutCard, FramerButton } from "./framer";
+import { UserPresenceAvatar } from "./animate-ui/components/community/user-presence-avatar";
 import { about } from "@/lib/site";
 
 /**
@@ -59,32 +60,44 @@ export default function About() {
         {about.cards.map((copy, i) => (
           <div
             key={i}
-            className="sticky top-0 flex h-screen w-full flex-col items-center justify-center gap-10"
+            className="sticky top-0 flex h-screen w-full items-center justify-center"
           >
-            <div className="pointer-events-auto w-full max-w-[900px]">
-              <FramerAboutCard
-                locale=""
-                variant="b2FfyB3ek"
-                wcaH6B2vy={`<p>${copy}</p>`}
-                style={{ width: "100%" }}
-              />
-            </div>
-            {i === about.cards.length - 1 && (
+            {/* The card must land in exactly the same place in every slot, or a
+                taller one lifts itself and reveals the card stacked beneath.
+                So the extras hang off the card instead of sharing a column. */}
+            <div className="relative w-full max-w-[900px]">
               <div className="pointer-events-auto">
-                <FramerButton
+                <FramerAboutCard
                   locale=""
-                  variant="DolaGztjE"
-                  O1r1SHWDe={about.cta.label}
-                  YAeBepFkC="ReadCvLogo"
-                  bGXKran9l={about.cta.href}
-                  IzpkIlCCL="rgb(255, 255, 255)"
-                  E3sMJqdyg="rgb(67, 96, 255)"
-                  jbqbpFWTR="rgb(67, 96, 255)"
-                  iiNMG_vXP="rgb(255, 255, 255)"
-                  IJooVlaof="Back"
+                  variant="b2FfyB3ek"
+                  wcaH6B2vy={`<p>${copy}</p>`}
+                  style={{ width: "100%" }}
                 />
               </div>
-            )}
+
+              {i === about.cards.length - 1 && (
+                <div className="absolute top-full left-1/2 flex -translate-x-1/2 flex-col items-center gap-6 pt-8 md:gap-8 md:pt-10">
+                  {/* The last card is the one about the three-part team. */}
+                  <div className="pointer-events-auto">
+                    <UserPresenceAvatar users={about.team} size="lg" />
+                  </div>
+                  <div className="pointer-events-auto">
+                    <FramerButton
+                      locale=""
+                      variant="DolaGztjE"
+                      O1r1SHWDe={about.cta.label}
+                      YAeBepFkC="ReadCvLogo"
+                      bGXKran9l={about.cta.href}
+                      IzpkIlCCL="rgb(255, 255, 255)"
+                      E3sMJqdyg="rgb(67, 96, 255)"
+                      jbqbpFWTR="rgb(67, 96, 255)"
+                      iiNMG_vXP="rgb(255, 255, 255)"
+                      IJooVlaof="Back"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         ))}
       </div>

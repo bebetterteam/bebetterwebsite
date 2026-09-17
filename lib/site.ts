@@ -16,16 +16,6 @@ export const hero = {
   tagline: "Digital solutions at a price that makes sense · Bangkok",
   cta: { label: "Get a Free Quote", href: "#contact" },
   ticker: "BEBETTER ",
-  /**
-   * Hero avatar row. Placeholders for now — drop a photo in public/team/ and
-   * set `src`, then swap `fallback` (initials) and `tooltip` (name).
-   * `online: false` renders the person in the greyed-out second group.
-   */
-  team: [
-    { id: 1, fallback: "MK", tooltip: "Marketing", online: true },
-    { id: 2, fallback: "CT", tooltip: "Content", online: true },
-    { id: 3, fallback: "DV", tooltip: "Dev", online: true },
-  ],
   // Verbatim from the Framer "Skills List" component (nodeId CLUNp73Ij).
   // NOTE: these strings are leftovers from the original Framer template and read
   // like a personal portfolio rather than Bebetter. Suggested replacement:
@@ -47,6 +37,17 @@ export const about = {
     "We're a small team in three parts: Marketing plans your campaigns, Content writes, shoots, and designs, and Dev builds the systems behind it all. We work straightforward and fast, keep things easy to use, and adapt to you, not the other way around.",
   ],
   cta: { label: "Book a Zoom Call", href: "#contact" },
+  /**
+   * The avatar row under the last card — the one about the three-part team.
+   * Placeholders for now: drop a photo in public/team/ and set `src`, then
+   * swap `fallback` (initials) and `tooltip` (name). `online: false` puts a
+   * person in the greyed-out second group.
+   */
+  team: [
+    { id: 1, fallback: "MK", tooltip: "Marketing", online: true },
+    { id: 2, fallback: "CT", tooltip: "Content", online: true },
+    { id: 3, fallback: "DV", tooltip: "Dev", online: true },
+  ],
 };
 
 export const toolkit = {
