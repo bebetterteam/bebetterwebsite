@@ -8,6 +8,8 @@
  *  - The roster is a `users` prop instead of the hard-coded demo list, so the
  *    real people live in lib/site.ts. The demo list stays as the default.
  *  - `size` adds a 36px and a 64px set next to the upstream 48px one.
+ *  - `ringColor` overrides the neutral ring upstream draws around the group
+ *    and each avatar. Left unset it keeps the upstream classes.
  */
 'use client';
 
@@ -103,13 +105,18 @@ function UserPresenceAvatar({
   users: initialUsers = USERS,
   size = 'md',
   className,
+  ringColor,
 }: {
   users?: PresenceUser[];
   size?: keyof typeof SIZES;
   className?: string;
+  /** Any CSS colour. Applied to the group pill and every avatar border. */
+  ringColor?: string;
 } = {}) {
   const [users, setUsers] = React.useState(initialUsers);
   const sizing = SIZES[size];
+  const ringStyle = ringColor ? { backgroundColor: ringColor } : undefined;
+  const borderStyle = ringColor ? { borderColor: ringColor } : undefined;
   const [togglingGroup, setTogglingGroup] = React.useState<
     'online' | 'offline' | null
   >(null);
@@ -147,6 +154,7 @@ function UserPresenceAvatar({
                 'bg-neutral-300 dark:bg-neutral-700 p-0.5 rounded-full',
                 togglingGroup === 'online' ? 'z-5' : 'z-10',
               )}
+              style={ringStyle}
               transition={GROUP_CONTAINER_TRANSITION}
             >
               <div
@@ -173,6 +181,7 @@ function UserPresenceAvatar({
                             sizing.avatar,
                             'border-neutral-300 dark:border-neutral-700'
                           )}
+                          style={borderStyle}
                         >
                           <AvatarImage src={user.src} />
                           <AvatarFallback>{user.fallback}</AvatarFallback>
@@ -195,6 +204,7 @@ function UserPresenceAvatar({
                 'bg-neutral-300 dark:bg-neutral-700 p-0.5 rounded-full',
                 togglingGroup === 'offline' ? 'z-5' : 'z-10',
               )}
+              style={ringStyle}
               transition={GROUP_CONTAINER_TRANSITION}
             >
               <div
@@ -221,6 +231,7 @@ function UserPresenceAvatar({
                             sizing.avatar,
                             'border-neutral-300 dark:border-neutral-700'
                           )}
+                          style={borderStyle}
                         >
                           <AvatarImage src={user.src} />
                           <AvatarFallback>{user.fallback}</AvatarFallback>

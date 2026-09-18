@@ -79,7 +79,14 @@ export default function About() {
                 <div className="absolute top-full left-1/2 flex -translate-x-1/2 flex-col items-center gap-6 pt-8 md:gap-8 md:pt-10">
                   {/* The last card is the one about the three-part team. */}
                   <div className="pointer-events-auto">
-                    <UserPresenceAvatar users={about.team} size="lg" />
+                    <UserPresenceAvatar
+                      users={about.team}
+                      size="lg"
+                      // Same stroke the Framer buttons draw — measured off the
+                      // rendered pill, since the colour is baked into the
+                      // component rather than exposed as a prop.
+                      ringColor="rgb(239, 240, 255)"
+                    />
                   </div>
                   <div className="pointer-events-auto">
                     <FramerButton
