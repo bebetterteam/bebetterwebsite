@@ -70,7 +70,7 @@ function ToolkitCard({ card }: { card: (typeof toolkit.cards)[number] }) {
       aria-pressed={flipped}
       aria-label={`${card.name} — show details`}
       tabIndex={0}
-      className="cursor-pointer rounded-[32px] outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+      className="w-full cursor-pointer rounded-[32px] outline-none focus-visible:ring-2 focus-visible:ring-brand-blue md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)]"
     >
       <FramerStackCard
         locale=""
@@ -102,7 +102,11 @@ export default function Toolkit() {
       <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col gap-12 md:gap-24">
         <h2 className="t-h2">{toolkit.title}</h2>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Flex-wrap rather than a grid: 11 cards into 3 columns leaves the
+            last row short, and a grid pins those cards to the left edge with a
+            hole beside them. Wrapping centres whatever the last row holds,
+            while full rows sit exactly where the 3-column grid put them. */}
+        <div className="flex flex-wrap justify-center gap-6">
           {toolkit.cards.map((card) => (
             <ToolkitCard key={card.name} card={card} />
           ))}
