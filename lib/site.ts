@@ -48,6 +48,7 @@ export const about = {
     { id: 1, src: "/team/phee.jpg", fallback: "PH", tooltip: "Phee", online: true },
     { id: 2, src: "/team/tent.jpg", fallback: "TN", tooltip: "Tent", online: true },
     { id: 3, src: "/team/arty.jpg", fallback: "AR", tooltip: "Arty", online: true },
+    { id: 4, src: "/team/joe.jpg", fallback: "JO", tooltip: "Joe", online: true },
   ],
 };
 

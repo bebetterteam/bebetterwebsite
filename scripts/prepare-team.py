@@ -26,7 +26,7 @@ from PIL import Image, ImageOps
 
 RAW = Path("public/team/raw")
 OUT = Path("public/team")
-ORDER = ["phee", "tent", "arty"]
+ORDER = ["phee", "tent", "arty", "joe"]
 MAX_SIZE = 512
 DEFAULT_CROP = {"x": 0.5, "y": 0.38, "zoom": 1.0}
 CROP = {
