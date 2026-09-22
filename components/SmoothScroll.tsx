@@ -25,12 +25,23 @@ export default function SmoothScroll() {
 
     // Anchor links (#about, #services, …) go through Lenis too.
     const onClick = (e: MouseEvent) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const anchor = (e.target as HTMLElement)?.closest?.(
         'a[href^="#"], a[href^="/#"]',
       ) as HTMLAnchorElement | null;
       if (!anchor) return;
-      const hash = anchor.getAttribute("href")!.replace(/^\//, "");
-      const target = document.querySelector(hash);
+      if (anchor.hasAttribute("download") || (anchor.target && anchor.target !== "_self")) return;
+      const url = new URL(anchor.href, window.location.href);
+      // A /# link on a project/legal page must navigate home first.
+      if (url.pathname !== window.location.pathname || url.search !== window.location.search) return;
+      const hash = url.hash;
+      let id: string;
+      try {
+        id = decodeURIComponent(hash.slice(1));
+      } catch {
+        return;
+      }
+      const target = document.getElementById(id);
       if (!target) return;
       e.preventDefault();
       lenis.scrollTo(target as HTMLElement, { offset: 0, duration: 1.4 });

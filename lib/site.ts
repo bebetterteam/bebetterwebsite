@@ -49,6 +49,7 @@ export const about = {
     { id: 2, src: "/team/tent.jpg", fallback: "TN", tooltip: "Tent", online: true },
     { id: 3, src: "/team/arty.jpg", fallback: "AR", tooltip: "Arty", online: true },
     { id: 4, src: "/team/joe.jpg", fallback: "JO", tooltip: "Joe", online: true },
+    { id: 5, src: "/team/yo.jpg", fallback: "YO", tooltip: "Yo", online: true },
   ],
 };
 
@@ -168,97 +169,169 @@ export const services = {
   ],
 };
 
+/**
+ * Prices are the "ใหม่" column of the internal proposal dated 22 Sep 2569.
+ * That document marks itself a DRAFT and says the published set is the one
+ * dated 21 Sep — these numbers went in on request, so treat them as pending
+ * until that set is confirmed.
+ *
+ * `accent` drives the price text and the button fill inside the Framer card,
+ * so it has to be a colour that reads on white — lime is background-only.
+ */
 export const pricing = {
   title: "Packages & How We Work",
-  cards: [
+
+  services: [
     {
-      title: "publio · Social Content",
-      description:
-        "Monthly content, written, designed, and posted for you. Popular plan: 20 posts a month.",
-      price: "฿6,900 / mo",
-      accent: "rgb(252, 97, 41)",
-      lines: [
-        "Starter: 8 posts ฿3,500 · Popular: 20 posts ฿6,900 · Daily: 30 posts ฿9,900",
-        "Content planning + Thai captions in your voice",
-        "Visual design for every post",
-        "Scheduled posting to Facebook (included)",
-        "Add LINE OA +฿900 · Instagram +฿900 · Google Business +฿1,200",
-        "Shared calendar, you approve before it goes live",
-        "Add-ons: SEO +฿4,500 · AEO +฿3,500 / mo",
-        "On-site photo shoot ฿6,900 per visit",
-        "Campaigns: Small ฿5,900 · Large ฿15,900",
-      ],
-      cta: { label: "See publio", href: "/publio" },
-      framer: {
-        variant: "mlnrZCeSR",
-        kuexjlf9X: "publio · Social Content",
-        CddCwPX3r:
-          "Monthly content, written, designed, and posted for you. Popular plan: 20 posts a month.",
-        KAvDwa2mg: "฿6,900",
-        JWZtJpNMj: "rgb(252, 97, 41)",
-        Eq0epDP0Z: "rgb(252, 97, 41)",
-        xght6NwMK:
-          "Starter: 8 posts ฿3,500 · Popular: 20 posts ฿6,900 · Daily: 30 posts ฿9,900",
-        arfNI6SAv: "Content planning + Thai captions in your voice",
-        huW14R4sU: "Visual design for every post",
-        FUOzMkbUW: "Scheduled posting to Facebook (included)",
-        ltSoS7hzq:
-          "Add LINE OA +฿900 · Instagram +฿900 · Google Business +฿1,200",
-        sXH2L9wod: "Shared calendar, you approve before it goes live",
-        GZYXKQ6zh: "Add-ons: SEO +฿4,500 · AEO +฿3,500 / mo",
-        RUpRJMeBT: "On-site photo shoot ฿6,900 per visit",
-        QYS454DuF: "Campaigns: Small ฿5,900 · Large ฿15,900",
-        TQIH2hR27: "/publio",
-        jgm1srukt: "rgb(252, 97, 41)",
-        tzMLDe9St: "rgb(255, 255, 255)",
-      },
-      // The Framer card hardcodes these two strings; see components/Pricing.tsx.
-      ctaLabel: "See publio",
+      title: "Social Content & Marketing",
+      price: "฿5,500",
       priceSuffix: "/ month",
+      accent: "rgb(252, 97, 41)",
+      description:
+        "Monthly content written, designed and posted for you, run on publio — our own content system.",
+      lines: [
+        "8 posts ฿5,500 · 20 posts ฿10,900 · 30 posts ฿15,900 a month",
+        "Content planning and Thai captions in your voice",
+        "Visual design for every post",
+        "Scheduled posting to Facebook, included",
+        "Shared calendar — you approve before anything goes live",
+        "Facebook and TikTok ad management ฿6,900 a month",
+        "Runs on publio, built and operated by us",
+      ],
+      cta: { label: "See how publio works", href: "/publio" },
+    },
+    {
+      title: "Photo, Video & Production",
+      price: "฿890+",
+      priceSuffix: "per piece",
+      accent: "rgb(67, 96, 255)",
+      description:
+        "Real photos and video of your real business, shot on site and edited ready to post.",
+      lines: [
+        "Half-day shoot at your shop or site ฿9,900",
+        "Short video ฿3,900 per clip",
+        "Graphic ฿890 per piece",
+        "Products, spaces and people, edited and delivered",
+        "Scale it to fit: one visit, a campaign, or every month",
+      ],
+      cta: { label: "Book a shoot", href: "#contact" },
+    },
+    {
+      title: "Digital Solutions & LINE",
+      price: "฿1,290+",
+      priceSuffix: "one time",
+      accent: "rgb(67, 96, 255)",
+      description:
+        "Websites, LINE storefronts and the plumbing between your tools.",
+      lines: [
+        "LINE OA storefront setup ฿2,900",
+        "LINE OA with Rich Menu ฿3,900",
+        "Rich Menu, one set ฿1,290",
+        "Landing page ฿9,900",
+        "Website up to 5 pages ฿24,900",
+        "Includes Pixel, PDPA consent, Live Chat on LINE and Facebook",
+        "Basic SEO, team training and 12 months of upkeep",
+      ],
+      cta: { label: "Scope a build", href: "#contact" },
+    },
+    {
+      title: "AI Solutions",
+      price: "฿6,900",
+      priceSuffix: "",
+      accent: "rgb(67, 96, 255)",
+      description:
+        "AI where it saves real time — assistants that answer in your tone and menus that route customers.",
+      lines: [
+        "AI Rich Menu Pro ฿6,900",
+        "Extra page ฿1,900 each",
+        "Customer-service assistants that answer in your voice",
+        "Document and data processing",
+        "Built with Claude, ChatGPT and custom models",
+      ],
+      cta: { label: "Talk it through", href: "#contact" },
+    },
+    {
+      title: "SEO, AEO & Google Business",
+      price: "฿2,900+",
+      priceSuffix: "/ month",
+      accent: "rgb(67, 96, 255)",
+      description:
+        "Get found by people and by AI. Google rankings, AI recommendations, and a listing that looks sharp.",
+      lines: [
+        "SEO ฿9,900 a month",
+        "AEO ฿12,900 a month — ChatGPT and other assistants recommend you",
+        "Google Business management ฿2,900 a month",
+        "Google Business profile setup ฿3,500, one time",
+        "SEO and AEO together ฿22,800 a month",
+      ],
+      cta: { label: "Get found", href: "#contact" },
     },
     {
       title: "Custom Project",
+      price: "Custom",
+      priceSuffix: "",
+      accent: "rgb(26, 26, 26)",
       description:
-        "Websites, automation, LINE, AI, or anything digital. Here's how a project with us goes.",
-      price: "Quote in 3 days",
-      accent: "rgb(67, 96, 255)",
+        "Anything digital that is not on this list. Here is how a project with us goes.",
       lines: [
+        "A quote back within 3 days",
         "1. Zoom call: you show us the case, we ask about the problem",
         "2. We come back with a solution and a mock-up",
         "3. We agree on timeline and cost, no surprises",
         "4. We deliver, then stay on for maintenance",
         "Scoped to your budget, from small fixes to full systems",
-        "Straightforward communication, fast turnaround",
         "Built to be easy for your team to use",
-        "Adapted to how you work, not a template",
-        "Ongoing maintenance plans available",
       ],
       cta: { label: "Start a project", href: "#contact" },
-      framer: {
-        variant: "mlnrZCeSR",
-        kuexjlf9X: "Custom Project",
-        CddCwPX3r:
-          "Websites, automation, LINE, AI, or anything digital. Here's how a project with us goes.",
-        KAvDwa2mg: "Quote in 3 days",
-        JWZtJpNMj: "rgb(67, 96, 255)",
-        Eq0epDP0Z: "rgb(67, 96, 255)",
-        xght6NwMK: "1. Zoom call: you show us the case, we ask about the problem",
-        arfNI6SAv: "2. We come back with a solution and a mock-up",
-        huW14R4sU: "3. We agree on timeline and cost, no surprises",
-        FUOzMkbUW: "4. We deliver, then stay on for maintenance",
-        ltSoS7hzq: "Scoped to your budget, from small fixes to full systems",
-        sXH2L9wod: "Straightforward communication, fast turnaround",
-        GZYXKQ6zh: "Built to be easy for your team to use",
-        RUpRJMeBT: "Adapted to how you work, not a template",
-        QYS454DuF: "Ongoing maintenance plans available",
-        TQIH2hR27: "/#contact",
-        jgm1srukt: "rgb(67, 96, 255)",
-        tzMLDe9St: "rgb(255, 255, 255)",
-      },
-      ctaLabel: "Start a project",
-      priceSuffix: "",
     },
   ],
+
+  /** Bundles from the proposal. `saving` is the difference against à la carte. */
+  bundles: {
+    title: "Bundles",
+    note: "Every bundle is 11% off the same services bought separately.",
+    items: [
+      { name: "Package A", detail: "For a small shop getting started", price: "฿7,500", period: "/ month", alaCarte: "฿8,400", saving: "฿900" },
+      { name: "Package B", detail: "The one most shops land on", price: "฿15,900", period: "/ month", alaCarte: "฿17,800", saving: "฿1,900" },
+      { name: "Package C", detail: "Everything running at once", price: "฿22,900", period: "/ month", alaCarte: "฿25,700", saving: "฿2,800" },
+      { name: "Storefront starter kit", detail: "One-time setup, not a subscription", price: "฿6,500", period: "one time", alaCarte: "฿7,400", saving: "฿900" },
+    ],
+  },
+
+  /** The full price list — 7 monthly plus 11 one-time line items. */
+  alaCarte: {
+    title: "Every price, on its own",
+    summary: "18 line items — 7 monthly, 11 one time",
+    monthly: {
+      title: "Monthly",
+      rows: [
+        ["Page management, 8 posts", "฿5,500"],
+        ["Page management, 20 posts", "฿10,900"],
+        ["Page management, 30 posts", "฿15,900"],
+        ["Facebook / TikTok ad management", "฿6,900"],
+        ["Google Business management", "฿2,900"],
+        ["SEO", "฿9,900"],
+        ["AEO", "฿12,900"],
+      ],
+    },
+    oneTime: {
+      title: "One time",
+      rows: [
+        ["Google Business profile setup", "฿3,500"],
+        ["LINE OA storefront setup", "฿2,900"],
+        ["LINE OA with Rich Menu", "฿3,900"],
+        ["Rich Menu, one set", "฿1,290"],
+        ["AI Rich Menu Pro", "฿6,900"],
+        ["Extra page, AI Rich Menu", "฿1,900"],
+        ["Half-day photo shoot", "฿9,900"],
+        ["Short video, per clip", "฿3,900"],
+        ["Graphic, per piece", "฿890"],
+        ["Landing page", "฿9,900"],
+        ["Website, up to 5 pages", "฿24,900"],
+      ],
+    },
+  },
+
   bookACall: {
     title: "Not sure what you need?",
     body: "Book a free 15-minute Zoom call. Tell us what's slowing you down and we'll come back with a solution and a quote, no strings attached.",

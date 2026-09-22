@@ -52,7 +52,7 @@ export default function Contact() {
             {nav.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
+                href={`/${item.href}`}
                 className="t-body-sm text-white/70 transition-colors hover:text-white"
               >
                 {item.label}
