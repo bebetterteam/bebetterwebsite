@@ -81,8 +81,8 @@ in the file that owns them:
    `public/logo-placeholder.svg` if a file is missing.
 3. **Team avatars.** Animate UI's `UserPresenceAvatar` sits under the last
    About Us card (the Framer `Memoji`s it replaces had no images set). The
-   roster is `about.team` in [lib/site.ts](lib/site.ts): Phee, Tent, Arty and
-   Joe, with their photos in place. The originals live in `public/team/raw/`;
+   roster is `about.team` in [lib/site.ts](lib/site.ts): Phee, Tent, Arty, Joe
+   and Yo, with their photos in place. The originals live in `public/team/raw/`;
    `npm run team` re-crops them (EXIF rotation, square, per-person crop box in
    `CROP`). A file named after someone goes to them, anything else is paired in
    filename order, and the initials show for anyone without a photo.

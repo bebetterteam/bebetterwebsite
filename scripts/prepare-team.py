@@ -26,7 +26,7 @@ from PIL import Image, ImageOps
 
 RAW = Path("public/team/raw")
 OUT = Path("public/team")
-ORDER = ["phee", "tent", "arty", "joe"]
+ORDER = ["phee", "tent", "arty", "joe", "yo"]
 MAX_SIZE = 512
 DEFAULT_CROP = {"x": 0.5, "y": 0.38, "zoom": 1.0}
 CROP = {
@@ -37,6 +37,8 @@ CROP = {
     # A full-length mirror shot — the head is a small part of the frame, so
     # this one crops in hard. See the note in the README about replacing it.
     "arty": {"x": 0.46, "y": 0.37, "zoom": 0.42},
+    # A wide night shot of a street — the subject is a small part of the frame.
+    "yo": {"x": 0.479, "y": 0.50, "zoom": 0.20},
 }
 
 
