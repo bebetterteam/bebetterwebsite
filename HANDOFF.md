@@ -1,11 +1,42 @@
 # Current handoff
 
-Last updated: 2026-09-20 by Codex.
+Last updated: 2026-10-03 by Claude.
 
 ## Latest user request
 
-User reported navbar clicks still did not reach sections after the first fix.
-Corrected the failed selector and added capture-phase navigation in TopNav.
+Publish the repository to https://github.com/Watcharavin/bebetterwebsite.git.
+
+## This session: published to GitHub
+
+- No application code, assets, dependencies, or configuration changed. The
+  only file modified is this handoff.
+- The repository had no remote. Added `origin` and pushed the existing
+  `master` branch; `git push -u` set upstream tracking. The remote URL
+  resolves to SSH because the account's git protocol is configured as ssh,
+  so the HTTPS URL given was rewritten to `git@github.com:...`.
+- Branch was left as `master` rather than renamed to `main`. The target repo
+  was empty, so `master` became its default branch. Renaming was not requested.
+- Pre-push checks: no tracked `.env`, key, credential, or certificate files;
+  a content scan for API keys, tokens, private-key headers, and AWS/OpenAI/
+  GitHub key patterns found nothing; 89 tracked files, largest being the
+  2.3 MB and 2.1 MB team source photos under `public/team/raw/`.
+- Verified after pushing: repo `bebetterwebsite` is PRIVATE, default branch
+  `master`, top three commits on GitHub match local, and `git status -sb`
+  shows master level with origin/master.
+- The repository being private matters: it carries real team photographs and
+  the draft pricing numbers described below. Making it public would expose
+  both. Flagged, not acted on.
+- Checks run this session: git and GitHub inspection only. No type check,
+  production build, or browser verification was run, and none is claimed.
+
+## State confirmed at the start of this session
+
+- Branch `master`, working tree clean, all prior work committed.
+- Codex's navigation fixes are present in the source: `onClickCapture` and the
+  `.framer-text` selector in `components/TopNav.tsx`, `getElementById` in
+  `components/SmoothScroll.tsx`.
+- Servers from earlier sessions are still listening on ports 3000, 3001, and
+  3002. They were left running; stopping them was not requested.
 
 ## Navbar follow-up correction
 
