@@ -11,9 +11,11 @@
     "framer": "unframer",
     "logo": "python3 scripts/prepare-logo.py",
     "logos": "node scripts/gen-brand-logos.cjs",
-    "team": "python3 scripts/prepare-team.py"
+    "team": "python3 scripts/prepare-team.py",
+    "postinstall": "patch-package"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.4.0",
     "@floating-ui/react": "^0.27.20",
     "@motionone/dom": "^10.18.0",
     "@radix-ui/react-avatar": "^1.2.6",
@@ -31,6 +33,7 @@
     "@types/node": "^24.3.0",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
+    "patch-package": "^8.0.1",
     "simple-icons": "^16.31.0",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2"

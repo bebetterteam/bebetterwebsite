@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Public_Sans } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
+import FramerMotionConfig from "@/components/FramerMotionConfig";
 import "./globals.css";
 import "@/framer/styles.css";
 
@@ -37,7 +38,7 @@ export default function RootLayout({
     <html lang="en" className={publicSans.variable}>
       <body>
         <SmoothScroll />
-        {children}
+        <FramerMotionConfig>{children}</FramerMotionConfig>
       </body>
     </html>
   );

@@ -4,9 +4,38 @@ Last updated: 2026-10-03 by Claude.
 
 ## Latest user request
 
-Publish the repository to https://github.com/Watcharavin/bebetterwebsite.git.
+Fix the Next.js console errors on `/`: React not recognizing `motionChild` /
+`scopeId` on DOM elements, and "Hydration failed because the server rendered
+text didn't match the client".
 
-## This session: published to GitHub
+## This session: Framer props leaking to the DOM (uncommitted)
+
+- Root cause: unframer's bundled framer-motion only filters non-DOM props
+  when `@emotion/is-prop-valid` is loaded, and it loads it via `require()`,
+  which silently fails inside the ESM bundle. So every Framer-internal prop
+  (`motionChild`, `scopeId`, `__withFX`, `parentSize`, `providedWindow`,
+  `stylesPresetsClassNames`) was forwarded to DOM elements, and the
+  server/client trees diverged, causing the hydration error.
+- Fix: installed `@emotion/is-prop-valid` and added
+  `components/FramerMotionConfig.tsx`, which wraps the app in unframer's
+  `MotionConfig isValidProp={isPropValid}`. `app/layout.tsx` wraps
+  `{children}` in it.
+- Also patched unframer's `AdaptedLink` (`dist/react.js`), which spread
+  Framer-only Link props onto cloned `<a>` elements for relative/mailto
+  links. Saved via `patch-package` in `patches/unframer+4.2.0.patch`;
+  `postinstall: patch-package` was added. Latest unframer 4.2.1 has the same
+  code, so check the patch still applies if unframer is upgraded.
+- Verified: `tsc --noEmit` passes. In a fresh dev server, SSR logs no longer
+  show the unknown-prop warnings. In the browser, the Next overlay shows no
+  hydration error and the DOM has no `motionchild`/`scopeid` attributes.
+- Still showing, already there before and not fixed: "Accessing element.ref
+  was removed in React 19" (Framer runtime via `framer/top-nav.js`) and a
+  missing `key` warning from `Ticker` in `framer/hero-ticker.js`. Both are in
+  generated code that `npm run framer` overwrites.
+- Note: port 3000 on this machine was serving a different app ("Dharma
+  console"), not this site.
+
+## Earlier session: published to GitHub
 
 - No application code, assets, dependencies, or configuration changed. The
   only file modified is this handoff.
