@@ -149,10 +149,10 @@ function fan() {
     { tag: "social", title: "publio, content on autopilot", img: "assets/projects/publio.webp", href: "#contact", badge: "own product" },
     { tag: "saas", title: "itsme., link-in-bio builder", img: "assets/projects/itsme-poster.jpg", href: "https://itsme.media/", badge: "live" },
     { tag: "mac app", title: "Ghozt, Claude Code in your notch", img: "assets/projects/ghozt-poster.jpg", href: "https://ghozt.vercel.app/", badge: "live" },
-    { tag: "LINE", title: "LINE OA storefronts & rich menus", tile: "assets/3d/green-element.png", bg: "linear-gradient(150deg,#d4ff94,#8dd631)", fg: "#1a1a1a", href: "#services", badge: "service" },
-    { tag: "AI", title: "assistants that answer in your tone", tile: "assets/3d/purple-sphere.png", bg: "linear-gradient(150deg,#5b76ff,#263abe)", fg: "#f2f2f2", href: "#services", badge: "service" },
-    { tag: "production", title: "real photos of your real business", tile: "assets/3d/orange-pyramid.png", bg: "linear-gradient(150deg,#ff8a5c,#fc6129)", fg: "#1a1a1a", href: "#services", badge: "service" },
-    { tag: "automation", title: "n8n flows that run while you sleep", tile: "assets/3d/yellow-cube.png", bg: "linear-gradient(150deg,#2b2b2b,#0d0d0d)", fg: "#f2f2f2", href: "#services", badge: "service" },
+    { tag: "LINE", title: "LINE OA storefronts & rich menus", img: "assets/projects/line-poster.jpg", href: "#services", badge: "service" },
+    { tag: "AI", title: "assistants that answer in your tone", img: "assets/projects/ai-poster.jpg", href: "#services", badge: "service" },
+    { tag: "production", title: "real photos of your real business", img: "assets/projects/production-poster.jpg", href: "#services", badge: "service" },
+    { tag: "automation", title: "n8n flows that run while you sleep", img: "assets/projects/automation-poster.jpg", href: "#services", badge: "service" },
   ];
   const fanEl = $(".fan");
   const n = items.length;
