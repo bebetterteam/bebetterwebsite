@@ -25,7 +25,7 @@ const POSTS = [
     date: "2026-10-19",
     title: "itsme. — one link that is actually you",
     excerpt: "A link-in-bio page you can really customise: colours, gradients, images, video, music and 16 fonts including Thai. Free, and live in under two minutes.",
-    cover: { img: "assets/projects/itsme-card.jpg", bg: "#f8f5ec" },
+    cover: { img: "assets/projects/itsme-card.jpg", wide: "assets/projects/itsme-wide.jpg", bg: "#f8f5ec" },
     tint: "#e6c9ff",
     link: { href: "https://itsme.media/", label: "Visit itsme.media" },
     html: `<p>itsme. is a link-in-bio builder from Bebetter. Put every link you have, socials, music, video, on a single page, style it until it looks like you, and share the whole thing with one URL.</p>

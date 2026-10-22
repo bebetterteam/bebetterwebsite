@@ -21,6 +21,12 @@ function coverHTML(p, extra = "") {
     ? `<div class="cover ${extra}${wide ? " wide" : ""}" style="--cbg:${c.bg}"><img class="photo" src="${c.img}" alt="" loading="lazy" /></div>`
     : `<div class="cover ${extra}" style="--cbg:${c.bg}"><div class="tile"><img src="${c.tile}" alt="" loading="lazy" /></div></div>`;
 }
+// The feature box is landscape (16:11); a post can supply its own landscape
+// artwork for it (`cover.wide`), otherwise the portrait cover is fitted whole.
+function featureCover(p) {
+  if (!p.cover.wide) return coverHTML(p);
+  return `<div class="cover fill" style="--cbg:${p.cover.bg}"><img class="photo" src="${p.cover.wide}" alt="" /></div>`;
+}
 function metaHTML(p) {
   return `<div class="meta" style="--tint:${p.tint}"><span class="tag">${p.label}</span>${p.date ? `<time datetime="${p.date}">${fmtDate(p.date)}</time><span aria-hidden="true">·</span>` : ""}<span>${readMins(p)} ${tr("min read")}</span></div>`;
 }
@@ -35,7 +41,7 @@ function cardHTML(p, i) {
 function newsPage() {
   const [lead, ...rest] = sorted;
   $(".feature").innerHTML = `
-    <a class="cover-link" href="${url(lead)}" data-cursor="read"><span class="tstk new">${tr("new!")}</span>${coverHTML(lead)}</a>
+    <a class="cover-link" href="${url(lead)}" data-cursor="read"><span class="tstk new">${tr("new!")}</span>${featureCover(lead)}</a>
     <div>${metaHTML(lead)}<h2 class="heavy">${esc(lead.title)}</h2><p>${esc(lead.excerpt)}</p>
       <a class="read" href="${url(lead)}">${tr("Read the story")} <i aria-hidden="true">→</i></a></div>`;
   const grid = $(".grid");

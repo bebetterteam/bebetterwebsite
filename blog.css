@@ -84,6 +84,7 @@
 .post-card .cover > img.photo { object-position: 50% 0%; }
 /* the wide feature frame shows the whole poster on its own background colour instead of zooming into it */
 .feature .cover > img.photo { object-fit: contain; }
+.feature .cover.fill > img.photo { object-fit: cover; }
 .cover.wide > img.photo { object-fit: contain; object-position: 50% 50%; padding: 6%; box-sizing: border-box; }
 .art-cover .stk { width: 110px; height: 110px; right: 2%; top: -50px; z-index: 3; }
 
