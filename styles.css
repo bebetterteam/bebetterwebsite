@@ -339,6 +339,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .hero-title { bottom: 76px; width: calc(100% - 32px); font-size: 10.4vw; line-height: .98; }
   .hero-title .ln { text-wrap-style: balance; }
   .hero-title .spark { right: -.15em; }
+  .hero-title .smiley { width: .75em; height: .75em; left: 2%; top: -.95em; } /* above the first line, not on it */
   .say-track { font-size: 23vw; }
   .say-copy { font-size: 16px; bottom: 9vh; }
   .agency h2, .team h2 { font-size: 10vw; }
@@ -418,3 +419,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 :lang(th) em { font-style: normal; font-weight: 700; } /* no true Thai italics: synthetic slant looks broken */
 .fgrid .mail { font-size: clamp(20px, 1.9vw, 28px); overflow-wrap: anywhere; } /* long address: keep it inside its column */
+
+/* ── Phones: drop the effects that repaint on every frame ── */
+@media (max-width: 809px), (pointer: coarse) {
+  .hero-media::after { animation: none; display: none; }       /* full-card blended grain */
+  .obj img { filter: none; }                                    /* drop-shadow on moving images */
+  .stk { filter: none; }
+  .card .tile img { filter: none; }
+  .hdr::before { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(242, 242, 242, .96); }
+  .hdr.on-dark::before { background: rgba(0, 0, 0, .9); }
+  .hero-title { will-change: transform, opacity; }
+}

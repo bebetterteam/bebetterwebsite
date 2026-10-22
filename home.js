@@ -28,10 +28,11 @@ function hero() {
 
   // idle float + pointer parallax
   objs.forEach((o, i) => {
+    if (touch && i % 2) return; // half the idle floats on phones
     gsap.to(o, { y: "+=" + gsap.utils.random(14, 26), rotation: gsap.utils.random(-8, 8), duration: gsap.utils.random(2.6, 4), ease: "sine.inOut", repeat: -1, yoyo: true, delay: i * 0.2 });
   });
   const movers = objs.map((o) => ({ d: +o.dataset.depth, img: o.firstElementChild, x: gsap.quickTo(o.firstElementChild, "x", { duration: 1, ease: "power3" }), y: gsap.quickTo(o.firstElementChild, "y", { duration: 1, ease: "power3" }) }));
-  $(".hero").addEventListener("pointermove", (e) => {
+  if (!touch) $(".hero").addEventListener("pointermove", (e) => {
     const nx = e.clientX / innerWidth - 0.5, ny = e.clientY / innerHeight - 0.5;
     movers.forEach((m) => { m.x(nx * 60 * m.d); m.y(ny * 40 * m.d); });
   });
@@ -41,7 +42,8 @@ function hero() {
   // fromTo + immediateRender:false, otherwise these capture the intro's start state
   const scrub = (el, from, to) => gsap.fromTo(el, from, { ...to, ease: "none", immediateRender: false, scrollTrigger: out });
   scrub(".hero-media", { scale: 1, borderRadius: 22 }, { scale: 0.9, borderRadius: 48 });
-  scrub(".hero-title", { yPercent: 0, opacity: 1 }, { yPercent: -60, opacity: 0.2 });
+  const phone = innerWidth < 810;
+  scrub(".hero-title", { yPercent: 0, scale: 1, opacity: 1 }, phone ? { yPercent: -10, scale: 0.9, opacity: 0 } : { yPercent: -60, opacity: 0.2 });
   objs.forEach((o) => scrub(o, { yPercent: 0 }, { yPercent: -80 * +o.dataset.depth }));
 }
 
@@ -78,8 +80,16 @@ function say() {
   const seed = chars.map((_, i) => ({ y: Math.sin(i * 12.9898) * 0.5 + 0.35, r: Math.cos(i * 78.233) }));
   const shown = new Set();
   const setters = chars.map((c) => ({ y: gsap.quickSetter(c, "y", "px"), r: gsap.quickSetter(c, "rotation", "deg") }));
-  let offs = [];
-  const measure = () => (offs = chars.map((c) => c.offsetLeft + c.parentElement.offsetLeft + c.offsetWidth / 2));
+  // Positions inside the track, measured on refresh only: reading layout on
+  // every scroll frame was a main cause of jank on phones.
+  let offs = [], stkOffs = [], loopBox = { left: 0, width: 1 };
+  const measure = () => {
+    const tx = gsap.getProperty(track, "x");
+    offs = chars.map((c) => c.offsetLeft + c.parentElement.offsetLeft + c.offsetWidth / 2);
+    stkOffs = stickers.map((s) => s.offsetLeft + s.parentElement.offsetLeft);
+    const lb = loop.getBoundingClientRect();
+    loopBox = { left: lb.left - tx, width: lb.width };
+  };
 
   const st = {
     trigger: ".say",
@@ -103,15 +113,14 @@ function say() {
         setters[i].y(-t * seed[i].y * vh * (vw < 810 ? 0.2 : 0.38)); // shorter arc on phones so letters stay on screen
         setters[i].r(t * seed[i].r * 75);
       });
-      stickers.forEach((s) => {
-        const on = s.getBoundingClientRect().left < vw * 0.82;
+      stickers.forEach((s, i) => {
+        const on = stkOffs[i] + tx < vw * 0.82;
         if (on !== shown.has(s)) {
           on ? shown.add(s) : shown.delete(s);
           gsap.to(s, { scale: on ? 1 : 0, rotation: on ? 0 : -40, duration: 0.6, ease: on ? "back.out(2.2)" : "power2.in", overwrite: true });
         }
       });
-      const lb = loop.getBoundingClientRect();
-      gsap.set(loop, { drawSVG: "0% " + gsap.utils.clamp(0, 100, ((vw * 0.9 - lb.left) / (lb.width + vw * 0.3)) * 100) + "%" });
+      gsap.set(loop, { drawSVG: "0% " + gsap.utils.clamp(0, 100, ((vw * 0.9 - (loopBox.left + tx)) / (loopBox.width + vw * 0.3)) * 100) + "%" });
     },
   });
   measure();

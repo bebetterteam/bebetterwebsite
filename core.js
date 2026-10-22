@@ -19,6 +19,10 @@ $$("polygon[data-burst]").forEach((p) => {
 });
 
 /* ── Smooth scroll ─────────────────────────────────────── */
+// Phones: the address bar showing/hiding resizes the viewport on every scroll
+// direction change; recalculating pins then makes the page jump. Ignore it.
+const touch = matchMedia("(hover: none), (pointer: coarse)").matches;
+ScrollTrigger.config({ ignoreMobileResize: true });
 let lenis = null;
 if (!reduce) {
   lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1 });
