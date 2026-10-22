@@ -430,3 +430,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .hdr.on-dark::before { background: rgba(0, 0, 0, .9); }
   .hero-title { will-change: transform, opacity; }
 }
+
+/* posters in the polaroid frames: keep the logo at the top in view */
+.polaroid img[src*="poster"] { object-position: 50% 12%; }

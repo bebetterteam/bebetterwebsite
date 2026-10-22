@@ -15,8 +15,10 @@ const url = (p) => `post.html?p=${p.slug}`;
 
 function coverHTML(p, extra = "") {
   const c = p.cover;
+  // Portrait posters fill the frame; a landscape image (publio) is fitted whole on its background colour.
+  const wide = !c.img?.includes("poster");
   return c.img
-    ? `<div class="cover ${extra}" style="--cbg:${c.bg}"><img class="photo" src="${c.img}" alt="" loading="lazy" /></div>`
+    ? `<div class="cover ${extra}${wide ? " wide" : ""}" style="--cbg:${c.bg}"><img class="photo" src="${c.img}" alt="" loading="lazy" /></div>`
     : `<div class="cover ${extra}" style="--cbg:${c.bg}"><div class="tile"><img src="${c.tile}" alt="" loading="lazy" /></div></div>`;
 }
 function metaHTML(p) {

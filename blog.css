@@ -84,6 +84,7 @@
 .post-card .cover > img.photo { object-position: 50% 0%; }
 /* the wide feature frame shows the whole poster on its own background colour instead of zooming into it */
 .feature .cover > img.photo { object-fit: contain; }
+.cover.wide > img.photo { object-fit: contain; object-position: 50% 50%; padding: 6%; box-sizing: border-box; }
 .art-cover .stk { width: 110px; height: 110px; right: 2%; top: -50px; z-index: 3; }
 
 .art { display: grid; grid-template-columns: 1fr minmax(0, 700px) 1fr; gap: 40px; max-width: 1180px; margin: clamp(56px, 9vh, 96px) auto 0; padding: 0 var(--gutter); }
@@ -121,7 +122,6 @@
   .feature { grid-template-columns: 1fr; }
   .feature .new { left: 6px; }
   .grid { grid-template-columns: 1fr; }
-  .post-card .cover { aspect-ratio: 4 / 3; }
   .art { grid-template-columns: 1fr; }
   .share { position: static; flex-direction: row; align-items: center; justify-self: start; order: 2; }
   .share .ok { position: static; }
@@ -134,3 +134,8 @@
 
 :lang(th) .post-card h3, :lang(th) .prose h2, :lang(th) .prose h3 { letter-spacing: 0; line-height: 1.3; }
 :lang(th) .art-head h1 { line-height: 1.15; }
+
+/* phones and small tablets: cards keep the poster's own 4:5 frame (a 4:3 crop cut posters in half) */
+@media (min-width: 560px) and (max-width: 809px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}

@@ -146,7 +146,7 @@ function polaroids() {
 /* ── 4. Fan carousel ───────────────────────────────────── */
 function fan() {
   const items = [
-    { tag: "social", title: "publio, content on autopilot", img: "assets/projects/publio.webp", href: "#contact", badge: "own product" },
+    { tag: "social", title: "publio, content on autopilot", img: "assets/projects/publio.webp", fit: "contain", bg: "#eff0f6", href: "#contact", badge: "own product" },
     { tag: "saas", title: "itsme., link-in-bio builder", img: "assets/projects/itsme-poster.jpg", href: "https://itsme.media/", badge: "live" },
     { tag: "mac app", title: "Ghozt, Claude Code in your notch", img: "assets/projects/ghozt-poster.jpg", href: "https://ghozt.vercel.app/", badge: "live" },
     { tag: "LINE", title: "LINE OA storefronts & rich menus", img: "assets/projects/line-poster.jpg", href: "#services", badge: "service" },
@@ -158,7 +158,7 @@ function fan() {
   const n = items.length;
   fanEl.innerHTML = items.map((it, i) =>
     `<div class="card" role="group" aria-roledescription="slide" aria-label="${i + 1} ${tr("of")} ${n}: ${tr(it.title)}">` +
-    (it.img ? `<img src="${it.img}" alt="${tr(it.title)}" />` : `<div class="tile" style="background:${it.bg};color:${it.fg}"><img src="${it.tile}" alt="" /><b>${tr(it.tag)}</b></div>`) +
+    (it.img ? `<img src="${it.img}" alt="${tr(it.title)}"${it.fit ? ` style="object-fit:${it.fit};background:${it.bg}"` : ""} />` : `<div class="tile" style="background:${it.bg};color:${it.fg}"><img src="${it.tile}" alt="" /><b>${tr(it.tag)}</b></div>`) +
     (i === 0 || it.badge !== "service" ? `<span class="badge"><svg viewBox="0 0 100 100"><use href="#spark"/></svg>${tr(it.badge)}</span>` : "") +
     `</div>`
   ).join("");
