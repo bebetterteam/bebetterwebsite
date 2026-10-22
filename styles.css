@@ -333,13 +333,18 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .hdr-work svg { width: 42px; height: 42px; margin-top: -21px; }
   .hdr-talk { width: 44px; padding: 0; justify-content: center; font-size: 0; gap: 0; }
   /* phone: no orphaned words in big headings */
-  .heavy { text-wrap: balance; }
+  /* text-wrap-style only: the `text-wrap` shorthand also resets nowrap,
+     which broke the one-line sideways sentence into a vertical column */
+  .heavy { text-wrap-style: balance; }
   .hero-title { bottom: 76px; width: calc(100% - 32px); font-size: 10.4vw; line-height: .98; }
-  .hero-title .ln { text-wrap: balance; }
+  .hero-title .ln { text-wrap-style: balance; }
   .hero-title .spark { right: -.15em; }
   .say-track { font-size: 23vw; }
   .say-copy { font-size: 16px; bottom: 9vh; }
   .agency h2, .team h2 { font-size: 10vw; }
+  /* underlined phrases may wrap on a phone instead of running off the edge */
+  .agency .draw-wrap, .team .draw-wrap, .need .draw-wrap, .tools .draw-wrap, .faq .draw-wrap { white-space: normal; }
+  .faq-head .tstk { left: auto; right: 4px; top: -40px; font-size: 20px; }
   /* polaroids: a tidy tilted 2x2 grid instead of the free-floating desktop layout */
   .polaroids { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 18px; height: auto; padding: 10px 6px; }
   .polaroids .blob { width: 80%; left: 10%; top: 8%; }
@@ -398,6 +403,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 :lang(th) body { line-height: 1.6; }
 :lang(th) .lang-switch button, .lang-switch button[lang="en"] { font-family: var(--sans); }
 @media (max-width: 480px) {
+  .hdr { padding-left: 14px; padding-right: 14px; column-gap: 6px; }
+  .hdr-left { gap: 10px; }
+  .hdr-work, .hdr-news { white-space: nowrap; } /* "ผลงาน" was breaking onto two lines at 360px */
+  .hdr-work { font-size: 19px; padding-left: 12px; }
+  .hdr-work svg { width: 38px; height: 38px; margin-top: -19px; }
+  .hdr-news { font-size: 15px; }
+  .hdr-talk { width: 40px; height: 40px; }
+  .faq-head .blob { top: -8%; }
   /* work + news + logo + language + LINE do not fit at phone width: keep the B mark, drop the lettering */
   .hdr-logo .word { display: none; }
   .hdr-right { gap: 8px; }
