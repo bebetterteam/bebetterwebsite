@@ -100,7 +100,7 @@ function say() {
         const p = (offs[i] + tx) / vw; // 0..1 across the screen
         let t = gsap.utils.clamp(0, 1, (p - 0.58) / 0.42);
         t = t * t;
-        setters[i].y(-t * seed[i].y * vh * 0.38);
+        setters[i].y(-t * seed[i].y * vh * (vw < 810 ? 0.2 : 0.38)); // shorter arc on phones so letters stay on screen
         setters[i].r(t * seed[i].r * 75);
       });
       stickers.forEach((s) => {
@@ -231,7 +231,8 @@ function fan() {
 /* ── 5. Team parallax field ────────────────────────────── */
 function team() {
   if (reduce) return;
-  $$(".field [data-speed]").forEach((el) => {
+  const phone = matchMedia("(max-width: 809px)").matches; // phones get a static grid, no parallax drift
+  if (!phone) $$(".field [data-speed]").forEach((el) => {
     gsap.to(el, { y: -+el.dataset.speed * 320, ease: "none", scrollTrigger: { trigger: ".field", start: "top bottom", end: "bottom top", scrub: true } });
   });
   $$(".field .mate").forEach((m) =>

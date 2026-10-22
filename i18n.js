@@ -100,6 +100,7 @@ const TH = {
   "marketing": "การตลาด",
   "content": "คอนเทนต์",
   "dev": "นักพัฒนา",
+  "finance & accounting": "การเงินและบัญชี",
   "good vibes": "ใจฟู",
   "สวัสดี": "hello!",
   "join the club": "มาเป็นแก๊งเดียวกัน",

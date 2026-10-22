@@ -332,24 +332,40 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .hdr-news { font-size: 16px; }
   .hdr-work svg { width: 42px; height: 42px; margin-top: -21px; }
   .hdr-talk { width: 44px; padding: 0; justify-content: center; font-size: 0; gap: 0; }
-  .hero-title { bottom: 84px; font-size: 9.2vw; }
-  .say-copy { font-size: 17px; }
-  .polaroids { height: 108vw; }
-  .polaroids .blob { width: 70%; }
-  .polaroid { width: calc(var(--w) * 1.7); }
-  .polaroid:nth-child(2) { --l: 2%; --t: 4%; }
-  .polaroid:nth-child(3) { --l: 46%; --t: 10%; }
-  .polaroid:nth-child(4) { --l: 6%; --t: 52%; }
-  .polaroid:nth-child(5) { --l: 50%; --t: 56%; }
+  /* phone: no orphaned words in big headings */
+  .heavy { text-wrap: balance; }
+  .hero-title { bottom: 76px; width: calc(100% - 32px); font-size: 10.4vw; line-height: .98; }
+  .hero-title .ln { text-wrap: balance; }
+  .hero-title .spark { right: -.15em; }
+  .say-track { font-size: 23vw; }
+  .say-copy { font-size: 16px; bottom: 9vh; }
+  .agency h2, .team h2 { font-size: 10vw; }
+  /* polaroids: a tidy tilted 2x2 grid instead of the free-floating desktop layout */
+  .polaroids { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 18px; height: auto; padding: 10px 6px; }
+  .polaroids .blob { width: 80%; left: 10%; top: 8%; }
+  .polaroid { position: relative; top: auto; left: auto; width: auto; }
+  .chip { font-size: 12px; }
+  .polaroid .chip { left: 8% !important; right: auto; top: auto !important; bottom: -12px !important; }
+  .work { padding-bottom: 64px; }
   .work .scribble, .work .blob { display: none; }
-  .field { height: 1180px; }
-  .mate { width: 46% !important; }
+  .team { padding-top: 96px; }
+  /* team: a two-column grid; the desktop parallax scatter overlaps at this width */
+  .field { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 16px; height: auto; margin-top: 56px; }
+  .mate { position: relative; top: auto; left: auto; width: auto !important; }
+  .field .doodle { display: none; }
+  .field .blob { width: 60% !important; z-index: 0; }
+  .field .mate { z-index: 1; } /* blobs sit behind the cards, not over the names */
+  .field .blob:nth-of-type(2) { display: none; } /* lands under the name labels in the grid */
+  .field .mate .tstk { left: auto !important; right: -4px; top: -14px !important; } /* stay inside the screen edge */
+  .field .tstk { font-size: 18px !important; box-shadow: 0 0 0 3px var(--white), 0 8px 18px rgba(0,0,0,.18); }
+  .field .mate .stk { width: 64px !important; height: 64px !important; left: auto !important; right: -8px; top: -20px !important; }
+  .mate .name { font-size: 18px; }
   .deck { flex-direction: column; align-items: center; }
-  .svc { flex: none; width: min(100%, 360px); margin: 36px 0 0; }
+  .svc { flex: none; width: min(100%, 360px); margin: 72px 0 0; } /* room for the next card's sticker */
   .svc:first-child { margin-top: 0; }
   .svc .sheet { min-height: 0; padding-top: 80px; }
   .tools { grid-template-columns: 1fr; }
-  .tools-head .snap { display: none; }
+  .tools-head .snap, .tools-head .arrow { display: none; }
   .cols { justify-content: center; height: 520px; }
   .panel { min-height: 0; padding-bottom: 360px; }
   /* keep the sticker pile in the band under the contact details */
@@ -388,3 +404,4 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .lang-switch button { min-width: 34px; height: 32px; padding: 0 7px; }
 }
 :lang(th) em { font-style: normal; font-weight: 700; } /* no true Thai italics: synthetic slant looks broken */
+.fgrid .mail { font-size: clamp(20px, 1.9vw, 28px); overflow-wrap: anywhere; } /* long address: keep it inside its column */
