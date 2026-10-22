@@ -89,11 +89,13 @@ function nav() {
   // slide away while reading down, come back on any upward scroll
   const hdr = $(".hdr");
   let hidden = false;
-  hdr.classList.toggle("is-solid", scrollY > innerHeight * 0.85); // e.g. a reload that restores scroll
+  // Pages without the big hero (news, articles) get the backing as soon as they scroll.
+  const solidAt = () => ($(".hero") ? innerHeight * 0.85 : 8);
+  hdr.classList.toggle("is-solid", scrollY > solidAt()); // e.g. a reload that restores scroll
   ScrollTrigger.create({
     start: 0, end: "max",
     onUpdate(self) {
-      hdr.classList.toggle("is-solid", self.scroll() > innerHeight * 0.85);
+      hdr.classList.toggle("is-solid", self.scroll() > solidAt());
       const hide = self.direction === 1 && self.scroll() > innerHeight * 0.6;
       if (hide === hidden) return;
       hidden = hide;

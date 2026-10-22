@@ -77,9 +77,13 @@
 :lang(th) .lede { font-family: var(--thai); font-style: normal; font-size: 21px; }
 .art-cover { position: relative; max-width: 1180px; margin: clamp(48px, 8vh, 80px) auto 0; padding: 0 var(--gutter); }
 .art-cover .cover { aspect-ratio: 16 / 9; }
-/* portrait posters: a 4:3 crop keeps the logo and mascot, which sit mid-frame */
-.art-cover:has(.poster) { max-width: 900px; }
-.art-cover .cover.poster { aspect-ratio: 4 / 3; }
+/* portrait posters (2:3) carry their title at the top: show the whole poster
+   in the article, and crop from the top in the smaller cards */
+.art-cover:has(.poster) { max-width: 600px; }
+.art-cover .cover.poster { aspect-ratio: 2 / 3; }
+.post-card .cover > img.photo { object-position: 50% 0%; }
+/* the wide feature frame shows the whole poster on its own background colour instead of zooming into it */
+.feature .cover > img.photo { object-fit: contain; }
 .art-cover .stk { width: 110px; height: 110px; right: 2%; top: -50px; z-index: 3; }
 
 .art { display: grid; grid-template-columns: 1fr minmax(0, 700px) 1fr; gap: 40px; max-width: 1180px; margin: clamp(56px, 9vh, 96px) auto 0; padding: 0 var(--gutter); }

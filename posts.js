@@ -134,7 +134,7 @@ const POSTS = [
     date: null,
     title: "Make an animated clip for your shop, one question at a time with Claude",
     excerpt: "A free kit from BeBetter: the same method we used for our cat clip and our salmon-sushi clip, from no idea at all to a script, a storyboard and files to finish the clip.",
-    cover: { tile: "assets/3d/purple-cube.png", bg: "linear-gradient(150deg,#ff8a5c,#fc6129)" },
+    cover: { img: "assets/projects/freekit-poster.jpg", bg: "#f8f5ec" },
     tint: "#ffb899",
     link: { href: "index.html#contact", label: "Get the kit on LINE" },
     html: `<p>The same method BeBetter used to make our cat clip and our salmon-sushi clip, from not knowing what story to tell to a script, a storyboard and files you can finish the clip with. <strong>No coding, no editing skills needed.</strong></p>
@@ -171,7 +171,7 @@ const POSTS = [
     date: null,
     title: "Get found by people and by AI: SEO, AEO and Google Business",
     excerpt: "Customers now ask Google and ChatGPT. Here is what each of the three does, and which one a small business should start with.",
-    cover: { tile: "assets/3d/turquoise-star.png", bg: "linear-gradient(150deg,#5b76ff,#263abe)" },
+    cover: { img: "assets/projects/getfound-poster.jpg", bg: "#f8f5ec" },
     tint: "#bdeee8",
     link: { href: "index.html#services", label: "See the service" },
     html: `<p>Getting found used to mean one thing: ranking on Google. Today your customers also ask AI assistants which shop to visit. There are three pieces to keep in shape, and they do different jobs.</p>
@@ -204,7 +204,7 @@ const POSTS = [
     date: null,
     title: "A LINE OA your customers actually use",
     excerpt: "Storefronts, rich menus, chatbots and order flows: what we build on the LINE API, and what each setup costs.",
-    cover: { tile: "assets/3d/green-element.png", bg: "linear-gradient(150deg,#d4ff94,#8dd631)" },
+    cover: { img: "assets/projects/line-poster.jpg", bg: "#f8f5ec" },
     tint: "#d4ff94",
     link: { href: "index.html#services", label: "See the service" },
     html: `<p>For a lot of Thai businesses, LINE is where customers already are. We develop on the LINE API: chatbots, rich menus, order flows and notifications your customers actually use.</p>
@@ -236,7 +236,7 @@ const POSTS = [
     date: null,
     title: "How a project with us goes, from Zoom call to maintenance",
     excerpt: "Four steps, a quote within three days, and no surprises on timeline or cost.",
-    cover: { tile: "assets/3d/yellow-cube.png", bg: "linear-gradient(150deg,#2b2b2b,#0d0d0d)" },
+    cover: { img: "assets/projects/howwework-poster.jpg", bg: "#f8f5ec" },
     tint: "#ffe08a",
     link: { href: "index.html#contact", label: "Start a project" },
     html: `<p>Bebetter is a digital agency in Bangkok, started in 2026 with one idea: good digital work shouldn't cost a fortune. Here is what working with us looks like.</p>
