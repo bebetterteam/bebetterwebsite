@@ -1,125 +1,14 @@
-# Bebetter — website
+# Bebetter website
 
-A real, coded implementation of the Bebetter Framer project, built with Next.js.
-Every string, colour, type style and section order is taken from the Framer
-project through the Framer MCP so the site matches the design.
+Static site: plain HTML, CSS and JavaScript, no build step.
 
-## Real Framer components (this is the important part)
+- `index.html` – home page, `news.html` – news index, `post.html?p=<slug>` – article
+- `styles.css` – shared styles, `blog.css` – news/article styles
+- `core.js` – shared motion (Lenis smooth scroll, nav, footer, reveals); `home.js` and `blog.js` – page sections
+- `posts.js` – the news posts (English fields plus a `th` block per post)
+- `i18n.js` – Thai translations; the EN/TH switch in the nav reloads the page with `?lang=th|en`
+- Animation: GSAP 3.13 (ScrollTrigger, SplitText, DrawSVG, Draggable, Inertia) and Lenis 1.3.1, loaded from jsDelivr
 
-The animations, variants, hover states, spring transitions and fonts are **not
-reimplemented** — they are the actual components from the Framer project,
-exported with [unframer](https://github.com/remorses/unframer) (free, open
-source; the paid Framer "React Export" plugin is not needed).
+Run locally: `python3 -m http.server 4747` in this folder, then open http://localhost:4747.
 
-```bash
-npx unframer          # re-runs the export, reads unframer.json
-```
-
-[unframer.json](unframer.json) lists the component URLs; the generated code
-lands in [framer/](framer/) and is committed so the build works without network
-access. [components/framer.ts](components/framer.ts) re-exports them.
-
-Props are Framer's generated ids (`O1r1SHWDe`, `RKNGwH5H8`, …). Every value
-passed comes verbatim from the page XML read through the Framer MCP, so each
-instance renders exactly the variant the design uses — for example the Stack
-Cards carry the real brand logos and flip to reveal their copy on hover, and
-the Button is the outlined pill with its icon reveal, not an approximation.
-
-## Stack
-
-- Next.js 15 (App Router) + React 19, TypeScript
-- Tailwind CSS v4 (design tokens mirror the Framer colour/text styles)
-- Lenis for the smooth scrolling (Framer's `SmoothScroll` node)
-- `unframer` for the real Framer components
-- Magic UI `MorphingText` for the rotating pill in the hero
-- Animate UI `UserPresenceAvatar` for the team row in About Us
-- Static export-friendly: every route is prerendered
-
-## Where the Framer design lives in the code
-
-| Framer                                        | Code |
-| --------------------------------------------- | ---- |
-| Colour styles + text styles                    | [app/globals.css](app/globals.css) (`@theme`, `.t-*`) |
-| Page `/` (nodeId `augiA20Il`) copy             | [lib/site.ts](lib/site.ts) |
-| CMS collection "Projects" (`kOgwlcBkr`)        | [lib/projects.ts](lib/projects.ts) |
-| CMS collection "Legal" (`T0aOdsSzY`)           | [lib/legal.ts](lib/legal.ts) |
-| `StackSection` logos | [lib/brandLogos.ts](lib/brandLogos.ts) (`npm run logos`) |
-| `SmoothScroll` (`fbi4b6Sdg`)                   | [components/SmoothScroll.tsx](components/SmoothScroll.tsx) |
-| `Top Nav` (`DiSK89Ch4`)                        | [components/TopNav.tsx](components/TopNav.tsx) |
-| Hero rotating pill (was `Skills List`, `CLUNp73Ij`) | [components/ui/morphing-text.tsx](components/ui/morphing-text.tsx) |
-| About Us team row | [components/animate-ui/components/community/user-presence-avatar/](components/animate-ui/components/community/user-presence-avatar/) |
-| `HeroSection` (`ByUyGiiNs`) + `Hero Ticker`    | [components/Hero.tsx](components/Hero.tsx), [components/HeroTicker.tsx](components/HeroTicker.tsx) |
-| `AboutSection` (`kiUiztjcw`), 350vh card stack | [components/About.tsx](components/About.tsx) |
-| `StackSection` (`AIVi4q8BD`) "Our Toolkit"     | [components/Toolkit.tsx](components/Toolkit.tsx) |
-| `ServicesSection` (`lTpVR4yl_`)                | [components/Services.tsx](components/Services.tsx) |
-| `PricingSection` (`wdYduEMv9`)                 | [components/Pricing.tsx](components/Pricing.tsx) |
-| `ProjectsSection` (`PjXRFN9Ez`)                | [components/Projects.tsx](components/Projects.tsx) |
-| `Button` (`GjHZzzxwD`)                         | [components/Button.tsx](components/Button.tsx) |
-| The six 3D props                               | [public/3d/](public/3d/) (downloaded from framerusercontent) |
-
-## Not in the Framer project — filled in here
-
-These were missing or unreadable through the MCP and are marked with a comment
-in the file that owns them:
-
-1. **Contact section / footer.** Every CTA in Framer links to `/#contact`, but
-   the page has only an empty `ContactScrollSection` and the `Footer` component
-   could not be read. [components/Contact.tsx](components/Contact.tsx) builds one
-   from the project's own type and colour styles. **Replace the placeholder
-   email, LINE link and address.**
-2. **Logo.** In place. `public/logo-source.png` is the file as supplied (artwork
-   on an opaque white background); `npm run logo` knocks the background out and
-   splits the symbol from the wordmark:
-
-   | file | used by |
-   | --- | --- |
-   | `public/logo.png` | full lockup, transparent |
-   | `public/logo-mark.png` | symbol only, 512×512 — hero card, footer, favicon |
-
-   To change the logo, replace `logo-source.png` and re-run `npm run logo`.
-   [components/Logo.tsx](components/Logo.tsx) falls back to
-   `public/logo-placeholder.svg` if a file is missing.
-3. **Team avatars.** Animate UI's `UserPresenceAvatar` sits under the last
-   About Us card (the Framer `Memoji`s it replaces had no images set). The
-   roster is `about.team` in [lib/site.ts](lib/site.ts): Phee, Tent, Arty, Joe
-   and Yo, with their photos in place. The originals live in `public/team/raw/`;
-   `npm run team` re-crops them (EXIF rotation, square, per-person crop box in
-   `CROP`). A file named after someone goes to them, anything else is paired in
-   filename order, and the initials show for anyone without a photo.
-
-   Arty's source is a full-length mirror shot, so it crops in hard and comes
-   out at 151px — soft at avatar size. A closer photo would replace it with no
-   code change.
-4. **Project / legal images.** Every Image field in the CMS is `null`, so covers
-   fall back to a brand gradient with a 3D prop.
-5. **Our Toolkit logos.** The Framer Stack Card only carries logos for a fixed
-   set (Chat GPT, Airtable, Figma, Framer, Google, Notion, Zapier, …). For
-   Supabase, Neon, n8n, Vercel, GitHub, Cloudflare and Claude the card renders
-   with a stand-in variant and [components/Toolkit.tsx](components/Toolkit.tsx)
-   swaps its SVG slot for the official mark — paths from `simple-icons` (CC0)
-   with each brand's own hex. Adding a card that Framer *does* have a logo for
-   is simpler: set `logoVariant` and drop `brandLogo`.
-6. **Hero skills pill.** The strings are verbatim from Framer but are leftovers
-   from the original template ("UX/UI Expertise", …). A suggested Bebetter
-   replacement is commented in [lib/site.ts](lib/site.ts).
-7. **Legal pages** still carry the template's `cohesion.framer.ai` boilerplate,
-   copied verbatim from the CMS. Rewrite before launch.
-
-## Develop
-
-```bash
-npm install
-npm run dev         # http://localhost:3000
-npm run build
-npm run framer      # re-export the Framer components (reads unframer.json)
-```
-
-### If the page renders unstyled (serif text, no layout)
-
-That is a stale dev-server module graph — it happens after files are added or
-deleted while `next dev` is running, and it drops the CSS chunks. Production
-builds are unaffected. Fix:
-
-```bash
-npm run dev:clean   # rm -rf .next && next dev
-```
+Deploys on Vercel as a static site; `vercel.json` turns off the framework preset and the build step.
