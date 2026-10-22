@@ -93,7 +93,7 @@ const POSTS = [
     date: "2026-09-03",
     title: "publio — your shop's content, written, designed and posted",
     excerpt: "publio learns your brand, writes Thai captions in your voice, builds images from your real product photos, and posts once you approve.",
-    cover: { img: "assets/projects/publio.webp", bg: "#eff0f6" },
+    cover: { img: "assets/projects/publio-poster.jpg", bg: "#f8f5ec" },
     tint: "#c9d2ff",
     link: { href: "index.html#contact", label: "Book a 15-minute demo" },
     html: `<p>publio learns your brand, writes Thai captions in your voice, creates images from your real product photos, and posts to your channels once you approve. Our team runs it for you, so you just review and say yes.</p>

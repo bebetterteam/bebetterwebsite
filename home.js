@@ -146,7 +146,7 @@ function polaroids() {
 /* ── 4. Fan carousel ───────────────────────────────────── */
 function fan() {
   const items = [
-    { tag: "social", title: "publio, content on autopilot", img: "assets/projects/publio.webp", fit: "contain", bg: "#eff0f6", href: "#contact", badge: "own product" },
+    { tag: "social", title: "publio, content on autopilot", img: "assets/projects/publio-poster.jpg", href: "#contact", badge: "own product" },
     { tag: "saas", title: "itsme., link-in-bio builder", img: "assets/projects/itsme-poster.jpg", href: "https://itsme.media/", badge: "live" },
     { tag: "mac app", title: "Ghozt, Claude Code in your notch", img: "assets/projects/ghozt-poster.jpg", href: "https://ghozt.vercel.app/", badge: "live" },
     { tag: "LINE", title: "LINE OA storefronts & rich menus", img: "assets/projects/line-poster.jpg", href: "#services", badge: "service" },
