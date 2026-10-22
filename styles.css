@@ -433,3 +433,24 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* posters in the polaroid frames: keep the logo at the top in view */
 .polaroid img[src*="poster"] { object-position: 50% 12%; }
+
+/* Team above phone width: a staggered three-column grid. The free scatter
+   with parallax overlapped photos at every width (Phee sat behind Tent). */
+@media (min-width: 810px) {
+  .field { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 32px; height: auto; max-width: 960px; padding-bottom: 80px; }
+  .mate { position: relative; top: auto; left: auto; width: auto !important; }
+  .field .mate:nth-of-type(3n + 2) { transform: translateY(70px); }
+  .field .doodle { display: none; }
+  .field .blob { z-index: 0; }
+  .field .blob:nth-of-type(1) { left: 60% !important; top: -4% !important; width: 32% !important; }
+  .field .blob:nth-of-type(2) { left: -6% !important; top: 46% !important; width: 26% !important; }
+  .field .mate { z-index: 1; }
+  .field .mate .tstk { left: auto !important; right: -10px; top: -18px !important; font-size: 22px !important; }
+  .field .mate .stk { width: 80px !important; height: 80px !important; left: auto !important; right: -14px; top: -24px !important; }
+}
+
+/* Service cards: five overlapping in a row only fit from 1400px; below that, wrap */
+@media (min-width: 810px) and (max-width: 1399px) {
+  .deck { flex-wrap: wrap; gap: 64px 0; }
+  .svc { flex: 0 0 300px; }
+}

@@ -240,8 +240,8 @@ function fan() {
 /* ── 5. Team parallax field ────────────────────────────── */
 function team() {
   if (reduce) return;
-  const phone = matchMedia("(max-width: 809px)").matches; // phones get a static grid, no parallax drift
-  if (!phone) $$(".field [data-speed]").forEach((el) => {
+  // The team is a static grid at every width; only the background blobs drift.
+  $$(".field .blob").forEach((el) => {
     gsap.to(el, { y: -+el.dataset.speed * 320, ease: "none", scrollTrigger: { trigger: ".field", start: "top bottom", end: "bottom top", scrub: true } });
   });
   $$(".field .mate").forEach((m) =>
