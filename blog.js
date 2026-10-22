@@ -16,7 +16,7 @@ const url = (p) => `post.html?p=${p.slug}`;
 function coverHTML(p, extra = "") {
   const c = p.cover;
   // Portrait posters fill the frame; a landscape image (publio) is fitted whole on its background colour.
-  const wide = !c.img?.includes("poster");
+  const wide = !/poster|-card\./.test(c.img || "");
   return c.img
     ? `<div class="cover ${extra}${wide ? " wide" : ""}" style="--cbg:${c.bg}"><img class="photo" src="${c.img}" alt="" loading="lazy" /></div>`
     : `<div class="cover ${extra}" style="--cbg:${c.bg}"><div class="tile"><img src="${c.tile}" alt="" loading="lazy" /></div></div>`;
@@ -91,7 +91,7 @@ function postPage() {
     ${metaHTML(p)}
     <h1 class="heavy">${esc(p.title)}</h1>
     <p class="lede">${esc(p.excerpt)}</p>`;
-  $(".art-cover").innerHTML = coverHTML(p, p.cover.img && p.cover.img.includes("poster") ? "poster" : "") +
+  $(".art-cover").innerHTML = coverHTML(p, p.cover.img && /poster|-card\./.test(p.cover.img) ? "poster" : "") +
     `<span class="stk" aria-hidden="true"><svg style="fill:var(--orange)"><use href="${stickers[POSTS.findIndex((x) => x.slug === p.slug) % stickers.length]}"/></svg></span>`;
   $(".prose").innerHTML = p.html + `<p class="art-cta"><a class="read" href="${p.link.href}">${esc(p.link.label)} <i aria-hidden="true">→</i></a></p>`;
   const others = sorted.filter((x) => x !== p).slice(0, 3);

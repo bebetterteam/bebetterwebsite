@@ -147,8 +147,8 @@ function polaroids() {
 function fan() {
   const items = [
     { tag: "social", title: "publio, content on autopilot", img: "assets/projects/publio-poster.jpg", href: "#contact", badge: "own product" },
-    { tag: "saas", title: "itsme., link-in-bio builder", img: "assets/projects/itsme-poster.jpg", href: "https://itsme.media/", badge: "live" },
-    { tag: "mac app", title: "Ghozt, Claude Code in your notch", img: "assets/projects/ghozt-poster.jpg", href: "https://ghozt.vercel.app/", badge: "live" },
+    { tag: "saas", title: "itsme., link-in-bio builder", img: "assets/projects/itsme-card.jpg", href: "https://itsme.media/", badge: "live" },
+    { tag: "mac app", title: "Ghozt, Claude Code in your notch", img: "assets/projects/ghozt-card.jpg", href: "https://ghozt.vercel.app/", badge: "live" },
     { tag: "LINE", title: "LINE OA storefronts & rich menus", img: "assets/projects/line-poster.jpg", href: "#services", badge: "service" },
     { tag: "AI", title: "assistants that answer in your tone", img: "assets/projects/ai-poster.jpg?v=2", href: "#services", badge: "service" },
     { tag: "production", title: "real photos of your real business", img: "assets/projects/production-poster.jpg", href: "#services", badge: "service" },

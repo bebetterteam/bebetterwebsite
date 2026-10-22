@@ -25,7 +25,7 @@ const POSTS = [
     date: "2026-10-19",
     title: "itsme. — one link that is actually you",
     excerpt: "A link-in-bio page you can really customise: colours, gradients, images, video, music and 16 fonts including Thai. Free, and live in under two minutes.",
-    cover: { img: "assets/projects/itsme-poster.jpg", bg: "#fdfaf3" },
+    cover: { img: "assets/projects/itsme-card.jpg", bg: "#f8f5ec" },
     tint: "#e6c9ff",
     link: { href: "https://itsme.media/", label: "Visit itsme.media" },
     html: `<p>itsme. is a link-in-bio builder from Bebetter. Put every link you have, socials, music, video, on a single page, style it until it looks like you, and share the whole thing with one URL.</p>
@@ -56,7 +56,7 @@ const POSTS = [
     date: "2026-10-19",
     title: "Ghozt — a Dynamic Island for Claude Code on your Mac",
     excerpt: "Ghozt turns the notch on your MacBook into a status bar for Claude Code. Start a task, go do something else, and the notch tells you when it needs you.",
-    cover: { img: "assets/projects/ghozt-poster.jpg", bg: "#050b18" },
+    cover: { img: "assets/projects/ghozt-card.jpg", bg: "#f8f5ec" },
     tint: "#9fb3ff",
     link: { href: "https://ghozt.vercel.app/", label: "Get Ghozt" },
     html: `<p>Ghozt turns the notch on your MacBook into a status bar for Claude Code. Start a task, go do something else, and the notch tells you when it has finished or when it needs you. No window switching.</p>
