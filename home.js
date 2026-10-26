@@ -240,9 +240,11 @@ function fan() {
 /* ── 5. Team parallax field ────────────────────────────── */
 function team() {
   if (reduce) return;
-  // The team is a static grid at every width; only the background blobs drift.
-  $$(".field .blob").forEach((el) => {
-    gsap.to(el, { y: -+el.dataset.speed * 320, ease: "none", scrollTrigger: { trigger: ".field", start: "top bottom", end: "bottom top", scrub: true } });
+  // Scattered photos drift at different speeds from 1024px up (phones and tablets use a grid).
+  // The drift is kept small enough that neighbouring photos never slide into each other.
+  const scatter = matchMedia("(min-width: 1024px)").matches;
+  $$(scatter ? ".field [data-speed]" : ".field .blob").forEach((el) => {
+    gsap.to(el, { y: -+el.dataset.speed * (scatter ? 160 : 320), ease: "none", scrollTrigger: { trigger: ".field", start: "top bottom", end: "bottom top", scrub: true } });
   });
   $$(".field .mate").forEach((m) =>
     gsap.from($(".ph", m), { clipPath: "inset(100% 0 0 0 round 16px)", duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: m, start: "top 88%" } })

@@ -434,9 +434,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* posters in the polaroid frames: keep the logo at the top in view */
 .polaroid img[src*="poster"], .polaroid img[src*="-card."] { object-position: 50% 12%; }
 
-/* Team above phone width: a staggered three-column grid. The free scatter
-   with parallax overlapped photos at every width (Phee sat behind Tent). */
-@media (min-width: 810px) {
+/* Team on tablets: the scatter needs at least 1024px, so a staggered grid here. */
+@media (min-width: 810px) and (max-width: 1023px) {
   .field { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 32px; height: auto; max-width: 960px; padding-bottom: 80px; }
   .mate { position: relative; top: auto; left: auto; width: auto !important; }
   .field .mate:nth-of-type(3n + 2) { transform: translateY(70px); }
