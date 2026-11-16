@@ -5,6 +5,72 @@
    date carry `date: null`. Each post's `th` block holds its Thai version. */
 const POSTS = [
   {
+    slug: "bkkflood",
+    th: {
+      label: "เปิดตัวผลิตภัณฑ์",
+      title: "Bangkok Flood 2026 — ทำไมกรุงเทพฯ น้ำท่วม? ลองเล่นดูเอง",
+      excerpt: "แบบจำลองกรุงเทพฯ 3 มิติ ลองปรับน้ำฝน น้ำเหนือ และน้ำทะเลหนุน แล้วดูว่าน้ำไปท่วมตรงไหน มีสถานการณ์แบบปี 2554 และเปิดปิดระบบป้องกันได้",
+      link: "ลองเล่นแบบจำลอง",
+      html: `<p>Bangkok Flood 2026 คือแบบจำลองกรุงเทพฯ แบบ 3 มิติที่เล่นได้บนเว็บ ไม่ต้องติดตั้งอะไร เปิดแล้วลองปรับน้ำฝน น้ำเหนือ และน้ำทะเลหนุนได้เอง แล้วดูว่าน้ำไปท่วมตรงไหน มากแค่ไหน เป็นโปรเจกต์ที่ทีมทำกันเองในแล็บ เพื่อให้เรื่องน้ำท่วมที่ฟังยาก กลายเป็นสิ่งที่ลองแล้วเข้าใจเลย</p>
+<blockquote><p>อย่าเพิ่งอ่าน ลองเล่นก่อน แล้วจะเข้าใจว่าทำไมกรุงเทพฯ น้ำท่วม</p></blockquote>
+<h2>น้ำ 3 น้ำ กับแผ่นดินทรุด</h2>
+<p>น้ำท่วมกรุงเทพฯ ไม่ได้มาจากทางเดียว แบบจำลองแยกให้เห็นทีละสาเหตุ</p>
+<ul><li><strong>น้ำฝน</strong>: เมื่อฝนตกแรงกว่าที่ท่อและคลองระบายได้ น้ำจะขังในจุดต่ำ ท่อระบายของเมืองออกแบบรับได้ราว 60 มม./ชม. และพื้นคอนกรีตทำให้น้ำซึมลงดินไม่ได้</li><li><strong>น้ำเหนือ</strong>: น้ำจากลุ่มเจ้าพระยาตอนบนไหลผ่านกรุงเทพฯ ลงทะเล ถ้าเกินราว 3,000 ลบ.ม./วินาที เริ่มอันตราย และถ้าไหลบ่ามาทางทุ่งด้านเหนือแบบปี 2554 จะท่วมจากเหนือลงใต้</li><li><strong>น้ำทะเลหนุน</strong>: ช่วงน้ำขึ้น ทะเลดันระดับน้ำในแม่น้ำให้สูงและทำให้ระบายลงทะเลช้าลง ช่วงตุลาคมถึงพฤศจิกายนหนุนสูงสุดของปี</li><li><strong>แผ่นดินทรุด</strong>: กรุงเทพฯ สูงจากระดับทะเลเพียง 0–2 เมตร พื้นที่ทรุดมากคือฝั่งตะวันออกและชายฝั่ง เขื่อนและคันกั้นน้ำทรุดตาม จึงกันน้ำได้น้อยลงเรื่อยๆ</li></ul>
+<h2>ลองเล่นอะไรได้บ้าง</h2>
+<h3>สถานการณ์ตัวอย่าง 6 แบบ</h3>
+<p>วันปกติ · ฝนตกหนักกลางเมือง · น้ำเหนือหลาก · น้ำทะเลหนุนสูง · 3 น้ำพร้อมกัน (แบบปี 2554) · อนาคต: แผ่นดินทรุดและทะเลสูงขึ้น กดครั้งเดียว ค่าทุกตัวจะถูกตั้งให้ แล้วดูน้ำค่อยๆ เติมจนถึงจุดสมดุล</p>
+<h3>ปรับเองทีละตัว</h3>
+<p>ความแรงของฝน ระยะเวลาที่ฝนตก ปริมาณน้ำเหนือ ระดับน้ำทะเลหนุน และแผ่นดินทรุดที่เพิ่มขึ้น</p>
+<h3>เปิดปิดระบบป้องกัน</h3>
+<p>แนวเขื่อนริมเจ้าพระยา (สูงราว 2.8 เมตร) คันกั้นน้ำฝั่งตะวันออก ชายฝั่ง และรอบสุวรรณภูมิ รวมถึงสถานีสูบน้ำและอุโมงค์ระบายน้ำ ลองปิดดูแล้วจะเห็นว่าแต่ละอย่างช่วยได้แค่ไหน</p>
+<h3>อ่านผลได้ทันที</h3>
+<p>ระดับน้ำเจ้าพระยาที่ปากคลองตลาดเทียบกับสันเขื่อน พื้นที่น้ำท่วม พื้นที่ที่ท่วมลึกเกิน 50 ซม. และแยกให้ว่าท่วมเพราะน้ำฝนขัง น้ำล้นจากแม่น้ำ น้ำทะเล หรือน้ำเหนือไหลบ่า</p>
+<p>ตัวอย่าง: ในสถานการณ์ 3 น้ำพร้อมกันแบบปี 2554 น้ำเจ้าพระยาขึ้นถึง 2.69 ม.รทก. เกือบเท่าสันเขื่อน 2.80 ม. และพื้นที่ในแบบจำลองท่วมราว 1,370 ตร.กม.</p>
+<h3>ดูได้หลายมุม</h3>
+<p>ภาพรวมทั้งเมือง หรือซูมไปพื้นที่ศึกษาคลองเตย–ปทุมวันที่ใช้ข้อมูลจริง สลับระหว่างภาพเมืองกับแผนที่ความสูง เปิดป้ายชื่อทั้ง 50 เขต และปักหมุดหรือหาตำแหน่งของคุณเองได้</p>
+<h2>ข้อควรรู้</h2>
+<p>นี่คือแบบจำลองเพื่อการศึกษา ไม่ใช่การพยากรณ์ ความสูงพื้นที่ แนวเขื่อน และตำแหน่งต่างๆ เป็นค่าประมาณจากข้อมูลสาธารณะ วิธีคำนวณคือเติมน้ำตามความสูงของพื้นที่ (bathtub) ที่ลดระดับตามระยะทาง ไม่ใช่การคำนวณการไหลจริง และความสูงของตึกขยายเกินจริงเพื่อให้เห็นชัด</p>
+<h2>ลองเลย</h2>
+<p>เปิดได้ทั้งบนคอมและมือถือ ใช้ฟรี เริ่มจาก "วันปกติ" แล้วค่อยๆ เพิ่มน้ำทีละตัว จะเห็นว่าน้ำ 3 น้ำมาพร้อมกันเมื่อไร เมืองถึงรับไม่ไหว</p>`,
+    },
+    kind: "product",
+    label: "product launch",
+    date: "2026-11-16",
+    title: "Bangkok Flood 2026 — why does Bangkok flood? Try it yourself",
+    excerpt: "A 3D model of Bangkok: turn up the rain, the river and the sea tide, and watch where the water goes. Includes a 2011-style scenario and defences you can switch off.",
+    cover: {
+      img: "assets/projects/bkkflood-poster.jpg",
+      wide: "assets/projects/bkkflood-wide.jpg",
+      bg: "#f8f5ec",
+    },
+    tint: "#c9d2ff",
+    link: {
+      href: "https://bkkflood2026.bebetter-th.com/",
+      label: "Try the model",
+    },
+    html: `<p>Bangkok Flood 2026 is a 3D model of Bangkok that runs in your browser, nothing to install. Turn up the rain, the river flow from the north and the sea tide yourself, and watch where the water goes and how deep it gets. We built it in our lab to turn a hard-to-follow topic into something you understand by playing with it.</p>
+<blockquote><p>Don't read about it yet. Play with it, and you'll see why Bangkok floods.</p></blockquote>
+<h2>Three waters, and a sinking city</h2>
+<p>Bangkok doesn't flood for one reason. The model lets you see each cause on its own.</p>
+<ul><li><strong>Rain</strong>: when rain falls faster than pipes and canals can drain it, water pools in low spots. The city's drains are designed for about 60 mm an hour, and concrete keeps water from soaking into the ground.</li><li><strong>Water from the north</strong>: the upper Chao Phraya basin drains through Bangkok to the sea. Above roughly 3,000 m³ a second it turns dangerous, and when it spills across the northern fields, as in 2011, the city floods from north to south.</li><li><strong>Sea tide</strong>: at high tide the sea pushes the river up and slows its drainage. October to November brings the highest tides of the year.</li><li><strong>Land subsidence</strong>: Bangkok sits just 0–2 m above sea level. The east and the coast sink fastest, and walls and dikes sink with them, so they hold back less water every year.</li></ul>
+<h2>What you can try</h2>
+<h3>Six ready-made scenarios</h3>
+<p>A normal day · Heavy rain downtown · River flood from the north · High sea tide · All three at once (2011-style) · The future: subsidence plus higher seas. One tap sets every value, then watch the water fill until it settles.</p>
+<h3>Change one thing at a time</h3>
+<p>Rain intensity, how long it rains, river flow from the north, the sea tide level, and extra land subsidence.</p>
+<h3>Switch the defences on and off</h3>
+<p>The Chao Phraya flood wall (about 2.8 m high), the eastern, coastal and Suvarnabhumi dikes, and the pumping stations and drainage tunnel. Turn one off and see how much it was doing.</p>
+<h3>Read the result straight away</h3>
+<p>The river level at Pak Khlong Talat against the top of the wall, the flooded area, the area under more than 50 cm of water, and a breakdown by cause: trapped rain, river overflow, sea water or river water spilling from the north.</p>
+<p>For example, in the 2011-style scenario the river reaches 2.69 m against a 2.80 m wall, and about 1,370 km² of the model floods.</p>
+<h3>Look from any angle</h3>
+<p>See the whole city, or zoom into the Khlong Toei–Pathum Wan study area built on real data. Switch between the city view and an elevation map, show labels for all 50 districts, and drop a pin or find your own location.</p>
+<h2>Good to know</h2>
+<p>This is an educational model, not a forecast. Ground heights, flood walls and locations are estimates from public data. It fills water by ground height (a "bathtub" method that falls off with distance), not a real flow simulation, and building heights are exaggerated so they're easy to see.</p>
+<h2>Try it</h2>
+<p>Works on desktop and phone, and it's free. Start with "a normal day", then add one water at a time, and you'll see the moment all three arrive together and the city can't cope.</p>`,
+  },
+  {
     slug: "itsme",
     th: {
       label: "เปิดตัวผลิตภัณฑ์",
@@ -68,6 +134,7 @@ const POSTS = [
   },
   {
     slug: "publio",
+    hidden: true, // paused: publio is off the site for now
     th: {
       label: "เปิดตัวผลิตภัณฑ์",
       title: "publio — คอนเทนต์ของร้านคุณ เขียน ออกแบบ และโพสต์ให้ครบ",

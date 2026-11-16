@@ -10,7 +10,7 @@ const readMins = (p) => {
 const local = (p) => (LANG === "th" && p.th ? { ...p, ...p.th, link: { ...p.link, label: p.th.link } } : p);
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 // Dated posts newest first; undated ones after them.
-const sorted = POSTS.map(local).sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+const sorted = POSTS.filter((p) => !p.hidden).map(local).sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 const url = (p) => `post.html?p=${p.slug}`;
 
 function coverHTML(p, extra = "") {

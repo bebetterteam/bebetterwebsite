@@ -3,9 +3,9 @@ boot(() => {
   hero();
   say();
   polaroids();
-  fan();
-  team();
   services();
+  lab();
+  team();
   tools();
   faq();
 }, { ownIntro: true });
@@ -129,115 +129,48 @@ function say() {
 /* ── 3. Polaroids fly in ───────────────────────────────── */
 function polaroids() {
   if (reduce) return;
-  const cards = $$(".polaroid");
-  cards.forEach((c, i) => {
-    const r = parseFloat(getComputedStyle(c).getPropertyValue("--r"));
-    gsap.set(c, { rotation: r });
-    gsap.from(c, {
-      y: 340 + i * 60, rotation: r * 4, scale: 0.8, opacity: 0, ease: "power3.out",
-      scrollTrigger: { trigger: ".polaroids", start: "top 95%", end: "top 35%", scrub: 1 },
-    });
-    gsap.to(c, { yPercent: -16 - i * 6, ease: "none", scrollTrigger: { trigger: ".polaroids", start: "top 35%", end: "bottom top", scrub: true } });
+  $$(".promise").forEach((c, i) => {
+    gsap.from($(".ph", c), { y: 120 + i * 40, rotation: (i % 2 ? 10 : -10), opacity: 0, ease: "power3.out", scrollTrigger: { trigger: ".promises", start: "top 95%", end: "top 45%", scrub: 1 } });
+    gsap.from($$(".pr-n, h3, p", c), { y: 30, opacity: 0, duration: 0.8, stagger: 0.08, ease: "expo.out", scrollTrigger: { trigger: c, start: "top 70%" } });
   });
-  gsap.from(".polaroids .blob", { scale: 0.3, rotation: -120, ease: "none", scrollTrigger: { trigger: ".polaroids", start: "top bottom", end: "center center", scrub: 1 } });
-  gsap.from(".chip", { scale: 0, duration: 0.5, stagger: 0.12, ease: "back.out(2.5)", scrollTrigger: { trigger: ".polaroids", start: "top 40%" } });
+  $$(".promise .art .fl").forEach((g, i) => gsap.to(g, { y: i % 2 ? -8 : -12, rotation: i % 3 ? 4 : -4, duration: 1.8 + (i % 4) * 0.35, repeat: -1, yoyo: true, ease: "sine.inOut" }));
+  gsap.from(".promise .chip", { scale: 0, duration: 0.5, stagger: 0.12, ease: "back.out(2.5)", scrollTrigger: { trigger: ".promises", start: "top 50%" } });
+  gsap.from(".crafts li", { y: 40, opacity: 0, duration: 0.8, stagger: 0.1, ease: "expo.out", scrollTrigger: { trigger: ".crafts", start: "top 85%" } });
 }
 
-/* ── 4. Fan carousel ───────────────────────────────────── */
-function fan() {
-  const items = [
-    { tag: "social", title: "publio, content on autopilot", img: "assets/projects/publio-poster.jpg", href: "#contact", badge: "own product" },
-    { tag: "saas", title: "itsme., link-in-bio builder", img: "assets/projects/itsme-card.jpg", href: "https://itsme.media/", badge: "live" },
-    { tag: "mac app", title: "Ghozt, Claude Code in your notch", img: "assets/projects/ghozt-card.jpg", href: "https://ghozt.vercel.app/", badge: "live" },
-    { tag: "LINE", title: "LINE OA storefronts & rich menus", img: "assets/projects/line-poster.jpg", href: "#services", badge: "service" },
-    { tag: "AI", title: "assistants that answer in your tone", img: "assets/projects/ai-poster.jpg?v=2", href: "#services", badge: "service" },
-    { tag: "production", title: "real photos of your real business", img: "assets/projects/production-poster.jpg", href: "#services", badge: "service" },
-    { tag: "automation", title: "n8n flows that run while you sleep", img: "assets/projects/automation-poster.jpg", href: "#services", badge: "service" },
-  ];
-  const fanEl = $(".fan");
-  const n = items.length;
-  fanEl.innerHTML = items.map((it, i) =>
-    `<div class="card" role="group" aria-roledescription="slide" aria-label="${i + 1} ${tr("of")} ${n}: ${tr(it.title)}">` +
-    (it.img ? `<img src="${it.img}" alt="${tr(it.title)}"${it.fit ? ` style="object-fit:${it.fit};background:${it.bg}"` : ""} />` : `<div class="tile" style="background:${it.bg};color:${it.fg}"><img src="${it.tile}" alt="" /><b>${tr(it.tag)}</b></div>`) +
-    (i === 0 || it.badge !== "service" ? `<span class="badge"><svg viewBox="0 0 100 100"><use href="#spark"/></svg>${tr(it.badge)}</span>` : "") +
-    `</div>`
-  ).join("");
-  const cards = $$(".card", fanEl);
-  const tag = $(".work-meta .tag"), title = $(".work-meta h3"), view = $(".work-meta .view");
-  let pos = 0, shownIdx = -1;
-
-  const wrapD = (d) => ((((d + n / 2) % n) + n) % n) - n / 2;
-  function layout(p, dur = 0) {
-    const w = cards[0].offsetWidth;
-    cards.forEach((c, i) => {
-      const d = wrapD(i - p), a = Math.abs(d);
-      gsap.to(c, {
-        x: d * w * 0.36 + Math.sign(d) * Math.min(a, 1) * w * 0.18,
-        y: a * 26 + (a > 1 ? (a - 1) * 18 : 0),
-        rotation: d * 7,
-        scale: 1 - Math.min(a, 3) * 0.07,
-        zIndex: 100 - Math.round(a * 10),
-        autoAlpha: a > 3.2 ? 0 : 1,
-        filter: `brightness(${1 - Math.min(a, 3) * 0.12})`,
-        duration: dur, ease: "expo.out", overwrite: true,
-      });
-    });
-    const idx = ((Math.round(p) % n) + n) % n;
-    if (idx !== shownIdx) {
-      shownIdx = idx;
-      const it = items[idx];
-      gsap.fromTo([tag, title, view], { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, stagger: 0.05, ease: "power3.out", overwrite: true });
-      tag.textContent = tr(it.tag); title.textContent = tr(it.title); view.href = it.href;
-      $("span", view).textContent = tr(it.href.startsWith("http") ? "Visit site" : it.href === "#contact" ? "Ask us about it" : "See the service");
-    }
-  }
-  const goTo = (p) => { pos = p; layout(pos, 0.9); };
-  layout(0);
-
-  $(".fan-nav .prev").onclick = () => goTo(Math.round(pos) - 1);
-  $(".fan-nav .next").onclick = () => goTo(Math.round(pos) + 1);
-  fanEl.tabIndex = 0;
-  fanEl.addEventListener("keydown", (e) => { if (e.key === "ArrowLeft") goTo(Math.round(pos) - 1); if (e.key === "ArrowRight") goTo(Math.round(pos) + 1); });
-
-  // drag with momentum
-  let startX = 0, startPos = 0, moved = false, lastX = 0, lastT = 0, vel = 0;
-  fanEl.addEventListener("pointerdown", (e) => {
-    startX = lastX = e.clientX; lastT = performance.now(); startPos = pos; moved = false; vel = 0;
-    fanEl.setPointerCapture(e.pointerId); fanEl.classList.add("dragging");
-  });
-  fanEl.addEventListener("pointermove", (e) => {
-    if (!fanEl.classList.contains("dragging")) return;
-    const dx = e.clientX - startX;
-    if (Math.abs(dx) > 4) moved = true;
-    const now = performance.now();
-    vel = (e.clientX - lastX) / Math.max(1, now - lastT); lastX = e.clientX; lastT = now;
-    pos = startPos - dx / (cards[0].offsetWidth * 0.55);
-    layout(pos, 0.35);
-  });
-  const end = (e) => {
-    if (!fanEl.classList.contains("dragging")) return;
-    fanEl.classList.remove("dragging");
-    if (!moved) {
-      // a tap: bring the tapped card to the front
-      const hit = document.elementsFromPoint(e.clientX, e.clientY).find((el) => el.classList?.contains("card"));
-      const i = cards.indexOf(hit);
-      if (i >= 0) goTo(Math.round(pos) + wrapD(i - Math.round(pos)));
-      return;
-    }
-    goTo(Math.round(pos - vel * 2.2));
-  };
-  fanEl.addEventListener("pointerup", end);
-  fanEl.addEventListener("pointercancel", end);
-  addEventListener("resize", () => layout(pos));
-
+/* ── 4. Services: stacked panels ──────────────────────── */
+function services() {
   if (reduce) return;
-  // the fan opens up as it scrolls into view
-  const intro = { p: 0 };
-  gsap.from(cards, { y: 300, rotation: 0, x: 0, scale: 0.7, stagger: 0.04, duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: ".fan", start: "top 75%" }, onComplete: () => layout(pos, 0.6), immediateRender: false });
+  const panes = $$(".pane");
+  panes.forEach((p) => {
+    // The panel itself only fades: its transform belongs to the desktop shrink below.
+    // Two tweens on one element's transform leave a stale offset when the breakpoint flips.
+    gsap.from(p, { opacity: 0, duration: 0.8, ease: "power2.out", scrollTrigger: { trigger: p, start: "top 88%" } });
+    gsap.from([$(".pane-main", p), $(".pane-art", p)], { y: 80, duration: 1.1, stagger: 0.08, ease: "expo.out", scrollTrigger: { trigger: p, start: "top 88%" } });
+    gsap.from($(".pane-art img", p), { rotation: 0, y: 60, scale: 0.9, ease: "none", scrollTrigger: { trigger: p, start: "top bottom", end: "center center", scrub: 1 } });
+    gsap.from($$(".offer li", p), { x: -30, opacity: 0, duration: 0.7, stagger: 0.06, ease: "power3.out", scrollTrigger: { trigger: $(".offer", p), start: "top 85%" } });
+    const stk = $(".pane-art .stk", p);
+    gsap.from(stk, { scale: 0, rotation: -80, duration: 0.8, ease: "back.out(2.4)", scrollTrigger: { trigger: p, start: "top 60%" } });
+    gsap.to(stk, { rotation: gsap.utils.random(-12, 12), y: -8, duration: gsap.utils.random(1.6, 2.4), repeat: -1, yoyo: true, ease: "sine.inOut" });
+  });
+  // while panels are sticky, the one being covered shrinks back a little
+  gsap.matchMedia().add("(min-width: 1024px) and (min-height: 800px)", () => {
+    panes.slice(0, -1).forEach((p, i) =>
+      gsap.to(p, { scale: 0.94 + i * 0.02, ease: "none", scrollTrigger: { trigger: panes[i + 1], start: "top bottom", end: "top 120px", scrub: true } })
+    );
+  });
+}
+
+/* ── 5. Lab tiles ──────────────────────────────────────── */
+function lab() {
+  if (reduce) return;
+  gsap.from(".exp", { y: 90, opacity: 0, rotation: (i) => (i % 2 ? 3 : -3), duration: 1.1, stagger: 0.12, ease: "expo.out", scrollTrigger: { trigger: ".lab-grid", start: "top 82%" } });
+  gsap.from(".exp-next .stk", { scale: 0, rotation: -120, duration: 0.9, delay: 0.4, ease: "back.out(2.4)", scrollTrigger: { trigger: ".lab-grid", start: "top 70%" } });
+  gsap.to(".exp-next .stk svg", { rotation: 360, transformOrigin: "50% 50%", duration: 14, repeat: -1, ease: "none" });
   gsap.from(".work .blob", { scale: 0, rotation: 60, ease: "none", scrollTrigger: { trigger: ".work", start: "top 70%", end: "center center", scrub: 1 } });
 }
 
-/* ── 5. Team parallax field ────────────────────────────── */
+/* ── 6. Team parallax field ────────────────────────────── */
 function team() {
   if (reduce) return;
   // Scattered photos drift at different speeds from 1024px up (phones and tablets use a grid).
@@ -253,18 +186,6 @@ function team() {
     gsap.from(s, { scale: 0, rotation: "-=40", duration: 0.8, ease: "back.out(2.4)", scrollTrigger: { trigger: s, start: "top 85%" } })
   );
   $$(".field .blob").forEach((b) => gsap.to(b, { rotation: "+=40", ease: "none", scrollTrigger: { trigger: ".field", start: "top bottom", end: "bottom top", scrub: true } }));
-}
-
-/* ── 6. Service cards deal in ──────────────────────────── */
-function services() {
-  if (reduce) return;
-  const svcs = $$(".svc");
-  gsap.from(svcs, {
-    y: (i) => 520 + i * 40, rotation: (i) => (i % 2 ? 24 : -24), opacity: 0, ease: "power3.out", stagger: 0.08,
-    scrollTrigger: { trigger: ".deck", start: "top 98%", end: "top 30%", scrub: 1 },
-  });
-  gsap.from($$(".svc .stk"), { scale: 0, rotation: -60, duration: 0.8, stagger: 0.1, ease: "back.out(2.2)", scrollTrigger: { trigger: ".deck", start: "top 45%" } });
-  $$(".svc .stk").forEach((s) => gsap.to(s, { rotation: gsap.utils.random(-12, 12), y: -8, duration: gsap.utils.random(1.6, 2.4), repeat: -1, yoyo: true, ease: "sine.inOut" }));
 }
 
 /* ── 7. Toolkit columns ────────────────────────────────── */
