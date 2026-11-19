@@ -241,6 +241,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .p-line { --bg: var(--blue); --chip-bg: var(--paper); --chip-fg: var(--blue-deep); --rule: rgba(242,242,242,.22); --muted: rgba(242,242,242,.78); }
 .p-content { --bg: var(--lime); --fg: var(--black); --chip-bg: var(--black); --chip-fg: var(--lime); --rule: rgba(0,0,0,.14); --muted: rgba(0,0,0,.64); }
+.p-pr { --bg: var(--orange); --fg: var(--paper); --chip-bg: var(--black); --chip-fg: var(--paper); --rule: rgba(242,242,242,.26); --muted: rgba(242,242,242,.82); }
 .pane-top { display: flex; align-items: flex-start; gap: 16px; }
 .pane-n { flex: none; margin-top: .55em; font-size: 14px; font-weight: 700; padding: 3px 9px 5px; border-radius: 8px; background: var(--chip-bg); color: var(--chip-fg); }
 .pane h3 { margin: 0; font-size: clamp(56px, 7.4vw, 116px); font-weight: 900; letter-spacing: -.055em; line-height: .9; }
@@ -251,6 +252,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .o-txt b { display: block; font-size: 18px; font-weight: 800; letter-spacing: -.02em; }
 .o-txt span { display: block; margin-top: 3px; font-size: 15px; line-height: 1.4; color: var(--muted); }
 .o-price { justify-self: end; text-align: right; font-size: 13.5px; font-weight: 700; padding: 5px 11px 6px; border-radius: 99px; background: var(--chip-bg); color: var(--chip-fg); white-space: nowrap; }
+.o-price { display: none; } /* prices hidden for now: delete this line to show the chips again */
+.offer li { grid-template-columns: minmax(0, 1fr); }
+/* long lists go two columns on desktop so the sticky pane fits on one screen */
+@media (min-width: 1024px) {
+  .offer.long { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
+  .offer.long li { align-items: start; padding: 11px 0; }
+  .offer.long .o-txt span { font-size: 14px; }
+}
 .pane-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: clamp(22px, 3vh, 32px); }
 .pane-cta {
   display: inline-flex; align-items: center; gap: 9px; height: 52px; padding: 0 22px 0 10px; border-radius: 99px;
@@ -263,7 +272,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .pane-note { font-size: 15px; font-weight: 500; color: var(--muted); }
 .pane-art { position: relative; margin: 0; }
 .pane-art img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 20px; transform: rotate(3deg); box-shadow: 0 30px 60px rgba(0,0,0,.28); }
-.p-line .pane-art img { transform: rotate(-3deg); }
+.p-line .pane-art img, .p-pr .pane-art img { transform: rotate(-3deg); }
 .pane-art .stk { width: clamp(80px, 8vw, 116px); height: clamp(80px, 8vw, 116px); left: -34px; top: -30px; }
 /* desktop with room to spare: each panel sticks and the next one slides over it */
 @media (min-width: 1024px) and (min-height: 800px) {

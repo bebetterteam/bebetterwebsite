@@ -139,7 +139,25 @@ function polaroids() {
 }
 
 /* ── 4. Services: stacked panels ──────────────────────── */
+// A sticky pane taller than the space under its slot would have its bottom
+// covered by the next pane before anyone reads it. Raise its sticky top so the
+// bottom edge stays on screen; panes that fit keep their stacked slot.
+function fitStickyPanes() {
+  const panes = $$(".pane");
+  panes.forEach((p) => { p.style.top = ""; });
+  if (!matchMedia("(min-width: 1024px) and (min-height: 800px)").matches) return;
+  panes.forEach((p) => {
+    const slot = parseFloat(getComputedStyle(p).top) || 0;
+    const room = innerHeight - 24 - p.offsetHeight; // 24px of breathing room under the pane
+    if (room < slot) p.style.top = room + "px";
+  });
+}
+
 function services() {
+  fitStickyPanes();
+  let fitTimer;
+  addEventListener("resize", () => { clearTimeout(fitTimer); fitTimer = setTimeout(fitStickyPanes, 150); });
+  if (document.fonts) document.fonts.ready.then(fitStickyPanes); // Thai fonts change the height
   if (reduce) return;
   const panes = $$(".pane");
   panes.forEach((p) => {
